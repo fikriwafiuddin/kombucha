@@ -119,6 +119,25 @@ export default function AdminContactSettings() {
                                             message={errors.instagram}
                                         />
                                     </div>
+                                    <div className="space-y-2">
+                                        <label
+                                            className={labelClasses}
+                                            htmlFor="email"
+                                        >
+                                            Email
+                                        </label>
+                                        <input
+                                            id="email"
+                                            className={inputClasses}
+                                            type="email"
+                                            name="email"
+                                            defaultValue={
+                                                siteContent.email ?? ''
+                                            }
+                                            placeholder="hello@kombuchaco.com"
+                                        />
+                                        <InputError message={errors.email} />
+                                    </div>
                                     <div className="space-y-2 md:col-span-3">
                                         <label
                                             className={labelClasses}

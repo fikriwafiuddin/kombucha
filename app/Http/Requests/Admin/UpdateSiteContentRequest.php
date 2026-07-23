@@ -51,6 +51,7 @@ class UpdateSiteContentRequest extends FormRequest
             'whatsapp' => ['nullable', 'string', 'max:50'],
             'operating_hours' => ['nullable', 'string', 'max:120'],
             'instagram' => ['nullable', 'string', 'max:120'],
+            'email' => ['nullable', 'string', 'email', 'max:255'],
             'address' => ['nullable', 'string'],
         ];
     }

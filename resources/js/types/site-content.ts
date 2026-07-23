@@ -34,6 +34,7 @@ export type SiteContent = {
     whatsapp: string | null;
     operating_hours: string | null;
     instagram: string | null;
+    email: string | null;
     address: string | null;
 };
 

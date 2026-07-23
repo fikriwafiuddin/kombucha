@@ -40,6 +40,7 @@ use Illuminate\Support\Carbon;
  * @property string|null $whatsapp
  * @property string|null $operating_hours
  * @property string|null $instagram
+ * @property string|null $email
  * @property string|null $address
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -75,6 +76,7 @@ use Illuminate\Support\Carbon;
     'whatsapp',
     'operating_hours',
     'instagram',
+    'email',
     'address',
 ])]
 class SiteContent extends Model
@@ -128,6 +130,7 @@ class SiteContent extends Model
             'whatsapp' => null,
             'operating_hours' => null,
             'instagram' => null,
+            'email' => 'hello@kombuchaco.com',
             'address' => null,
         ];
     }

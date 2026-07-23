@@ -493,7 +493,7 @@ export default function Landing({
                                         call
                                     </span>
                                     <span className="text-on-surface">
-                                        +62 812-3456-7890
+                                        {siteContent.whatsapp}
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-4">
@@ -501,7 +501,7 @@ export default function Landing({
                                         mail
                                     </span>
                                     <span className="text-on-surface">
-                                        hello@kombuchaco.com
+                                        {siteContent.email}
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-4">
@@ -509,7 +509,7 @@ export default function Landing({
                                         share
                                     </span>
                                     <span className="text-on-surface">
-                                        @kombuchaco.id
+                                        {siteContent.instagram}
                                     </span>
                                 </div>
                             </div>
@@ -524,7 +524,7 @@ export default function Landing({
                                         </span>
                                         <p className="text-xl">Workshop Kami</p>
                                         <p className="text-sm opacity-70">
-                                            Jakarta Selatan, Indonesia
+                                            {siteContent.address}
                                         </p>
                                     </div>
                                 </div>
@@ -567,9 +567,22 @@ export default function Landing({
                     <div className="mx-auto mt-4 flex max-w-[1280px] flex-col justify-between border-t border-surface-variant px-[24px] pt-8 text-xs text-on-surface-variant md:flex-row">
                         <p>© 2024 Kombucha Co. Artisan Fermentation.</p>
                         <div className="mt-4 flex gap-4 md:mt-0">
-                            <span>Instagram</span>
-                            <span>Facebook</span>
-                            <span>WhatsApp</span>
+                            <a
+                                className="transition-colors hover:text-primary"
+                                href={`https://instagram.com/${(siteContent.instagram ?? '').replace(/^@/, '')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Instagram
+                            </a>
+                            <a
+                                className="transition-colors hover:text-primary"
+                                href={`https://wa.me/${(siteContent.whatsapp ?? '').replace(/\D/g, '')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WhatsApp
+                            </a>
                         </div>
                     </div>
                 </footer>
@@ -577,7 +590,7 @@ export default function Landing({
                 {/* WhatsApp FAB */}
                 <a
                     className="group fixed right-8 bottom-8 z-60 flex w-auto items-center gap-2 rounded-full bg-secondary px-6 py-3 text-on-secondary shadow-[0_24px_24px_-4px_rgba(27,43,30,0.08)] transition-all hover:scale-105 active:scale-95"
-                    href="https://wa.me/yournumber"
+                    href={`https://wa.me/${(siteContent.whatsapp ?? '').replace(/\D/g, '')}`}
                 >
                     <span className="material-symbols-outlined fill-1">
                         chat
