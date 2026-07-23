@@ -145,7 +145,7 @@ export default function Landing({
                     <div className="mx-auto grid max-w-[1280px] items-center gap-16 px-[24px] md:grid-cols-2">
                         <div className="order-2 grid grid-cols-2 gap-4 md:order-1">
                             <img
-                                className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
+                                className="aspect-4/5 w-full rounded-2xl object-cover shadow-lg"
                                 alt="Close-up detail of bubbling fermentation in a glass jar"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0KOIEWKWqkCY9kutozxMKxhnesX_OhQ7NHBYETonzCiUCXZFcCgaFJhptaMD7302vaeeQ9IL9RLYTwQDfNSIhSWPp_VjP-Z2K-l9InaaAfgtGAjR435XgH14yhaj_IXkhv0DtvmiM2TQC7_vuI92e5kmfvNXpexc8nVpDdg2xem18WEfEc4W9dp99acI6ytDDvkNgzrjGxbSylQG3oqGmQBD2oGiR22dU-F3-M4Rg5OfdwneNqJ7jgZqbqZ2Gnul2HGX0jSYY-BY"
                             />

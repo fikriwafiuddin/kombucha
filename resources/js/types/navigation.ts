@@ -12,3 +12,10 @@ export type NavItem = {
     icon?: LucideIcon | null;
     isActive?: boolean;
 };
+
+export type NavItemWithIcon = {
+    title: string;
+    href: NonNullable<InertiaLinkProps['href']>;
+    icon?: string; // Material Symbol icon name
+    isActive?: boolean;
+};

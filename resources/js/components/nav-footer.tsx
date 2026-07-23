@@ -7,14 +7,14 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { toUrl } from '@/lib/utils';
-import type { NavItem } from '@/types';
+import type { NavItem, NavItemWithIcon } from '@/types';
 
 export function NavFooter({
     items,
     className,
     ...props
 }: ComponentPropsWithoutRef<typeof SidebarGroup> & {
-    items: NavItem[];
+    items: (NavItem | NavItemWithIcon)[];
 }) {
     return (
         <SidebarGroup
@@ -27,7 +27,7 @@ export function NavFooter({
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton
                                 asChild
-                                className="text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100"
+                                className="text-on-surface-variant hover:text-on-surface"
                             >
                                 <a
                                     href={toUrl(item.href)}
@@ -35,7 +35,15 @@ export function NavFooter({
                                     rel="noopener noreferrer"
                                 >
                                     {item.icon && (
-                                        <item.icon className="h-5 w-5" />
+                                        <>
+                                            {typeof item.icon === 'string' ? (
+                                                <span className="material-symbols-outlined text-sm">
+                                                    {item.icon}
+                                                </span>
+                                            ) : (
+                                                <item.icon className="h-5 w-5" />
+                                            )}
+                                        </>
                                     )}
                                     <span>{item.title}</span>
                                 </a>

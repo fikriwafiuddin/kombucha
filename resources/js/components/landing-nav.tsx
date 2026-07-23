@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import {
     Sheet,
@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { landing, login } from '@/routes';
+import { products as adminProducts } from '@/routes/admin';
 
 type NavItem = {
     label: string;
@@ -27,8 +28,10 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export function LandingNav() {
+    const { auth } = usePage().props;
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const isAdmin = auth.user !== null;
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -67,12 +70,21 @@ export function LandingNav() {
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <Link
-                        href={login()}
-                        className="hidden rounded-full bg-primary px-6 py-2 text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95 md:block"
-                    >
-                        Login
-                    </Link>
+                    {isAdmin ? (
+                        <Link
+                            href={adminProducts()}
+                            className="hidden rounded-full bg-primary px-6 py-2 text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95 md:block"
+                        >
+                            Dashboard
+                        </Link>
+                    ) : (
+                        <Link
+                            href={login()}
+                            className="hidden rounded-full bg-primary px-6 py-2 text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95 md:block"
+                        >
+                            Login
+                        </Link>
+                    )}
 
                     {/* Mobile hamburger menu */}
                     <Sheet open={open} onOpenChange={setOpen}>
@@ -111,12 +123,21 @@ export function LandingNav() {
                                     </SheetClose>
                                 ))}
                                 <SheetClose asChild>
-                                    <Link
-                                        href={login()}
-                                        className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95"
-                                    >
-                                        Login
-                                    </Link>
+                                    {isAdmin ? (
+                                        <Link
+                                            href={adminProducts()}
+                                            className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95"
+                                        >
+                                            Dashboard
+                                        </Link>
+                                    ) : (
+                                        <Link
+                                            href={login()}
+                                            className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95"
+                                        >
+                                            Login
+                                        </Link>
+                                    )}
                                 </SheetClose>
                             </div>
                         </SheetContent>

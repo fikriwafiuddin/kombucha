@@ -4,6 +4,8 @@ import { useState } from 'react';
 import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteContentController';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { hero as adminHero } from '@/routes/admin';
+// import type { BreadcrumbItem } from '@/types';
 
 type SiteContent = {
     id: number;
@@ -47,7 +49,7 @@ export default function AdminHero() {
         <>
             <Head title="Kelola Hero Banner" />
 
-            <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-b border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
+            <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
                         Manajemen Hero Banner
@@ -55,7 +57,7 @@ export default function AdminHero() {
                 </div>
             </header>
 
-            <div className="mx-auto max-w-350 space-y-8 p-6 md:space-y-12 md:p-8">
+            <div className="space-y-8 p-6 md:space-y-12 md:p-8">
                 <section id="hero" className="scroll-mt-24 space-y-6">
                     <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-container text-on-primary-container shadow-sm">
@@ -223,3 +225,12 @@ export default function AdminHero() {
         </>
     );
 }
+
+AdminHero.layout = {
+    breadcrumbs: [
+        {
+            title: 'Hero Banner',
+            href: adminHero(),
+        },
+    ],
+};

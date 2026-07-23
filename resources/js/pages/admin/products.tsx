@@ -11,7 +11,9 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import { products as adminProducts } from '@/routes/admin';
 import { formatCurrency } from '@/utils/fomatter';
+// import type { BreadcrumbItem } from '@/types';
 
 type Product = {
     id: number;
@@ -90,7 +92,7 @@ function ProductFormFields({
                 </label>
                 <input
                     id="image"
-                    className={`${inputClasses} py-[9px]`}
+                    className={`${inputClasses} py-2.25`}
                     type="file"
                     name="image"
                     accept="image/*"
@@ -139,14 +141,12 @@ export default function AdminProducts() {
             <Head title="Kelola Produk" />
 
             {/* Top App Bar */}
-            <header className="sticky top-0 z-40 flex items-center justify-between border-b border-outline-variant/10 bg-surface/80 px-6 py-4 backdrop-blur-md md:px-16">
+            <header className="sticky top-0 z-40 flex items-center justify-between border-b border-outline-variant/10 bg-surface/80 px-6 py-4 backdrop-blur-md md:px-8">
                 <div className="flex items-center gap-4">
                     <button className="p-2 text-on-surface md:hidden">
                         <span className="material-symbols-outlined">menu</span>
                     </button>
-                    <h2 className="text-2xl font-semibold text-primary">
-                        Kelola Produk
-                    </h2>
+                    <h2 className="text-2xl font-semibold">Kelola Produk</h2>
                 </div>
                 <div className="flex items-center gap-4">
                     <button
@@ -161,9 +161,9 @@ export default function AdminProducts() {
                 </div>
             </header>
 
-            <div className="mx-auto max-w-[1280px] px-6 py-8 md:px-16">
+            <div className="space-y-8 p-6 md:space-y-12 md:p-8">
                 {/* Data Table */}
-                <div className="overflow-hidden rounded-[32px] border border-outline-variant/10 bg-surface-container-lowest shadow-[0_4px_20px_-2px_rgba(27,43,30,0.05)]">
+                <div className="overflow-hidden rounded-4xl border border-outline-variant/10 bg-surface-container-lowest shadow-[0_4px_20px_-2px_rgba(27,43,30,0.05)]">
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse text-left">
                             <thead>
@@ -335,3 +335,12 @@ export default function AdminProducts() {
         </>
     );
 }
+
+AdminProducts.layout = {
+    breadcrumbs: [
+        {
+            title: 'Kelola Produk',
+            href: adminProducts(),
+        },
+    ],
+};

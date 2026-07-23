@@ -12,6 +12,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import { testimonials as adminTestimonials } from '@/routes/admin';
+// import type { BreadcrumbItem } from '@/types';
 
 type Testimonial = {
     id: number;
@@ -208,7 +210,7 @@ export default function AdminTestimonials() {
         <>
             <Head title="Kelola Testimonials" />
 
-            <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-b border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
+            <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
                         Manajemen Testimonials
@@ -216,7 +218,7 @@ export default function AdminTestimonials() {
                 </div>
             </header>
 
-            <div className="mx-auto max-w-[1400px] space-y-8 p-6 md:space-y-12 md:p-8">
+            <div className="space-y-8 p-6 md:space-y-12 md:p-8">
                 <section id="testimonials" className="scroll-mt-24 space-y-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -251,7 +253,7 @@ export default function AdminTestimonials() {
                         </button>
                     </div>
 
-                    <div className="overflow-hidden rounded-[32px] border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                    <div className="overflow-hidden rounded-4xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="w-full text-left">
                                 <thead>
@@ -474,3 +476,12 @@ export default function AdminTestimonials() {
         </>
     );
 }
+
+AdminTestimonials.layout = {
+    breadcrumbs: [
+        {
+            title: 'Testimonials',
+            href: adminTestimonials(),
+        },
+    ],
+};
