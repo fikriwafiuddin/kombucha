@@ -36,7 +36,9 @@ class SiteContentService implements SiteContentServiceContract
     public function update(array $data): SiteContent
     {
         return tap($this->get(), function (SiteContent $siteContent) use (&$data): void {
-            $data = $this->resolveHeroImage($siteContent, $data);
+            foreach (['hero_image' => 'hero', 'about_image_1' => 'about', 'about_image_2' => 'about'] as $field => $directory) {
+                $data = $this->resolveImageField($siteContent, $data, $field, $directory);
+            }
 
             $siteContent
                 ->fill($data)
@@ -45,25 +47,26 @@ class SiteContentService implements SiteContentServiceContract
     }
 
     /**
-     * When a hero image file was uploaded, store it on the public disk,
-     * remove the previously stored image, and replace the upload in the data
-     * array with its stored path. Non-upload values (including legacy external
-     * URLs already persisted) are left untouched.
+     * When an image file was uploaded for the given field, store it on the
+     * public disk under the provided directory, remove the previously stored
+     * image, and replace the upload in the data array with its stored path.
+     * Non-upload values (including legacy external URLs already persisted) are
+     * left untouched.
      *
      * @param  array<string, mixed>  $data
      * @return array<string, mixed>
      */
-    private function resolveHeroImage(SiteContent $siteContent, array $data): array
+    private function resolveImageField(SiteContent $siteContent, array $data, string $field, string $directory): array
     {
-        $image = $data['hero_image'] ?? null;
+        $image = $data[$field] ?? null;
 
         if (! $image instanceof UploadedFile) {
             return $data;
         }
 
-        $previous = $siteContent->hero_image;
+        $previous = $siteContent->{$field};
 
-        $data['hero_image'] = $image->store('hero', 'public');
+        $data[$field] = $image->store($directory, 'public');
 
         if ($previous && Storage::disk('public')->exists($previous)) {
             Storage::disk('public')->delete($previous);

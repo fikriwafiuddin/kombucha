@@ -3,20 +3,7 @@ import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteCont
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { contactSettings as adminContactSettings } from '@/routes/admin';
-// import type { BreadcrumbItem } from '@/types';
-
-type SiteContent = {
-    id: number;
-    hero_headline: string | null;
-    hero_subheadline: string | null;
-    hero_cta_text: string | null;
-    hero_cta_link: string | null;
-    hero_image: string | null;
-    whatsapp: string | null;
-    operating_hours: string | null;
-    instagram: string | null;
-    address: string | null;
-};
+import type { SiteContent } from '@/types';
 
 type PageProps = {
     siteContent: SiteContent;

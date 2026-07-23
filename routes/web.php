@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BenefitsController;
 use App\Http\Controllers\Admin\ContactSettingsController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -19,6 +21,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
     Route::get('hero', [HeroController::class, 'index'])->name('hero');
+    Route::get('about', [AboutController::class, 'index'])->name('about');
+    Route::get('benefits', [BenefitsController::class, 'index'])->name('benefits');
     Route::get('contact-settings', [ContactSettingsController::class, 'index'])->name('contact-settings');
     Route::patch('content/settings', [SiteContentController::class, 'update'])->name('content.settings.update');
 

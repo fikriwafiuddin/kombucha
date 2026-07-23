@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
@@ -10,6 +11,13 @@ use Tests\TestCase;
 class AdminPageTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
 
     public function test_admin_products_page_loads(): void
     {
@@ -44,6 +52,20 @@ class AdminPageTest extends TestCase
         $response = $this->get(route('admin.hero'));
         $response->assertOk();
         $response->assertInertia(fn (Assert $page) => $page->component('admin/hero')->has('siteContent'));
+    }
+
+    public function test_admin_about_page_loads(): void
+    {
+        $response = $this->get(route('admin.about'));
+        $response->assertOk();
+        $response->assertInertia(fn (Assert $page) => $page->component('admin/about')->has('siteContent'));
+    }
+
+    public function test_admin_benefits_page_loads(): void
+    {
+        $response = $this->get(route('admin.benefits'));
+        $response->assertOk();
+        $response->assertInertia(fn (Assert $page) => $page->component('admin/benefits')->has('siteContent'));
     }
 
     public function test_admin_testimonials_page_loads(): void

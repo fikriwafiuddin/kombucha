@@ -1,6 +1,8 @@
 import { Head } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { LandingNav } from '@/components/landing-nav';
+import { assetUrl } from '@/types';
+import type { SiteContent } from '@/types';
 
 type Product = {
     id: number;
@@ -10,14 +12,14 @@ type Product = {
     image: string;
 };
 
+// Fallback images used until an admin uploads About section images.
+const ABOUT_IMAGE_1_FALLBACK =
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuA0KOIEWKWqkCY9kutozxMKxhnesX_OhQ7NHBYETonzCiUCXZFcCgaFJhptaMD7302vaeeQ9IL9RLYTwQDfNSIhSWPp_VjP-Z2K-l9InaaAfgtGAjR435XgH14yhaj_IXkhv0DtvmiM2TQC7_vuI92e5kmfvNXpexc8nVpDdg2xem18WEfEc4W9dp99acI6ytDDvkNgzrjGxbSylQG3oqGmQBD2oGiR22dU-F3-M4Rg5OfdwneNqJ7jgZqbqZ2Gnul2HGX0jSYY-BY';
+const ABOUT_IMAGE_2_FALLBACK =
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCzH8HL2I8U2TfMTF8djTyPsTVa3hZVpQR3vilc1BsagCGeKfjl82uZMpj9TMATXq1jIfQM1LRdUriCrpSH-t7BA6R219XuCh-6jjNcYbux7_HcirCR04iRIf53KYoOhkkse3VvmPDwBHFuGMU6to3wD-fUIXmiaFsBRMaiYVbgCFNs3IWMPQ4F_QkFsvKdBRi3ydbXf-eWC3watksKOPETbNUZOQRH_FVSfr_iOx09G3tH-JVMDA5BE-Lfboqa84YZqv-hBl7cuOA';
+
 interface LandingProps {
-    siteContent: {
-        hero_headline: string;
-        hero_subheadline: string;
-        hero_image: string;
-        hero_cta_link: string;
-        hero_cta_text: string;
-    };
+    siteContent: SiteContent;
     products: Product[];
     galleryImages: {
         id: number;
@@ -47,7 +49,10 @@ export default function Landing({
 }: LandingProps) {
     const [showAll, setShowAll] = useState(false);
     const visibleProducts = showAll ? products : products.slice(0, 4);
-    console.log(siteContent);
+    const aboutImage1 =
+        assetUrl(siteContent.about_image_1) ?? ABOUT_IMAGE_1_FALLBACK;
+    const aboutImage2 =
+        assetUrl(siteContent.about_image_2) ?? ABOUT_IMAGE_2_FALLBACK;
 
     useEffect(() => {
         // Scroll Animation Observer
@@ -108,7 +113,7 @@ export default function Landing({
                                 </span> */}
                                 {siteContent.hero_headline}
                             </h1>
-                            <p className="max-w-lg text-lg leading-[28px] text-on-surface-variant">
+                            <p className="max-w-lg text-lg leading-7 text-on-surface-variant">
                                 {siteContent.hero_subheadline}
                             </p>
                             <div className="flex flex-col gap-4 sm:flex-row">
@@ -131,7 +136,7 @@ export default function Landing({
                             <img
                                 className="relative z-10 aspect-square w-full rounded-[40px] object-cover shadow-2xl transition-transform duration-700 group-hover:-translate-y-4"
                                 alt="A premium glass bottle of golden kombucha standing elegantly on a minimalist stone coaster"
-                                src={`/storage/${siteContent.hero_image}`}
+                                src={assetUrl(siteContent.hero_image) ?? ''}
                             />
                         </div>
                     </div>
@@ -147,59 +152,56 @@ export default function Landing({
                             <img
                                 className="aspect-4/5 w-full rounded-2xl object-cover shadow-lg"
                                 alt="Close-up detail of bubbling fermentation in a glass jar"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0KOIEWKWqkCY9kutozxMKxhnesX_OhQ7NHBYETonzCiUCXZFcCgaFJhptaMD7302vaeeQ9IL9RLYTwQDfNSIhSWPp_VjP-Z2K-l9InaaAfgtGAjR435XgH14yhaj_IXkhv0DtvmiM2TQC7_vuI92e5kmfvNXpexc8nVpDdg2xem18WEfEc4W9dp99acI6ytDDvkNgzrjGxbSylQG3oqGmQBD2oGiR22dU-F3-M4Rg5OfdwneNqJ7jgZqbqZ2Gnul2HGX0jSYY-BY"
+                                src={aboutImage1}
                             />
                             <img
-                                className="mt-8 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
+                                className="mt-8 aspect-4/5 w-full rounded-2xl object-cover shadow-lg"
                                 alt="Artisanal glass bottles of various colored kombuchas"
-                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzH8HL2I8U2TfMTF8djTyPsTVa3hZVpQR3vilc1BsagCGeKfjl82uZMpj9TMATXq1jIfQM1LRdUriCrpSH-t7BA6R219XuCh-6jjNcYbux7_HcirCR04iRIf53KYoOhkkse3VvmPDwBHFuGMU6to3wD-fUIXmiaFsBRMaiYVbgCFNs3IWMPQ4F_QkFsvKdBRi3ydbXf-eWC3watksKOPETbNUZOQRH_FVSfr_iOx09G3tH-JVMDA5BE-Lfboqa84YZqv-hBl7cuOA"
+                                src={aboutImage2}
                             />
                         </div>
                         <div className="order-1 space-y-8 md:order-2">
                             <span className="text-sm font-semibold tracking-widest text-primary uppercase">
-                                Filosofi
+                                {siteContent.about_tag}
                             </span>
                             <h2 className="text-3xl font-semibold text-secondary">
-                                Apa itu Kombucha?
+                                {siteContent.about_title}
                             </h2>
-                            <p className="text-base leading-[24px] leading-relaxed text-on-surface-variant">
-                                Kombucha adalah teh fermentasi yang telah
-                                dikonsumsi selama ribuan tahun. Di Kombucha Co.,
-                                kami menjaga tradisi ini dengan menggunakan
-                                bahan-bahan organik pilihan dan proses
-                                fermentasi lambat selama 14 hari untuk
-                                menghasilkan profil rasa yang seimbang.
+                            <p className="text-base leading-relaxed text-on-surface-variant">
+                                {siteContent.about_description}
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-center gap-4">
                                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container">
                                         <span className="material-symbols-outlined">
-                                            eco
+                                            {siteContent.about_feature_1_icon}
                                         </span>
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-on-surface">
-                                            100% Organik
+                                            {siteContent.about_feature_1_title}
                                         </h4>
                                         <p className="text-sm text-on-surface-variant">
-                                            Hanya menggunakan teh dan gula
-                                            organik premium.
+                                            {
+                                                siteContent.about_feature_1_description
+                                            }
                                         </p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container">
                                         <span className="material-symbols-outlined">
-                                            health_and_safety
+                                            {siteContent.about_feature_2_icon}
                                         </span>
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-on-surface">
-                                            Tanpa Pengawet
+                                            {siteContent.about_feature_2_title}
                                         </h4>
                                         <p className="text-sm text-on-surface-variant">
-                                            Murni hasil fermentasi alami tanpa
-                                            bahan kimia.
+                                            {
+                                                siteContent.about_feature_2_description
+                                            }
                                         </p>
                                     </div>
                                 </div>
@@ -215,49 +217,44 @@ export default function Landing({
                 >
                     <div className="mb-16 space-y-4 text-center">
                         <h2 className="text-3xl font-semibold text-primary">
-                            Kebaikan di Setiap Tetes
+                            {siteContent.benefits_title}
                         </h2>
                         <p className="mx-auto max-w-2xl text-on-surface-variant">
-                            Sangat kaya akan probiotik, antioksidan, dan asam
-                            organik yang mendukung kesejahteraan tubuh Anda.
+                            {siteContent.benefits_description}
                         </p>
                     </div>
                     <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         <div className="group rounded-3xl border border-surface-variant bg-white p-8 shadow-[0_24px_24px_-4px_rgba(27,43,30,0.05)] transition-all duration-300 hover:shadow-xl">
                             <span className="material-symbols-outlined mb-6 block text-4xl text-primary transition-transform group-hover:scale-110">
-                                desk
+                                {siteContent.benefits_card_1_icon}
                             </span>
                             <h3 className="mb-3 text-xl font-semibold text-secondary">
-                                Pencernaan Sehat
+                                {siteContent.benefits_card_1_title}
                             </h3>
                             <p className="leading-relaxed text-on-surface-variant">
-                                Membantu menyeimbangkan mikrobioma usus dan
-                                memperlancar metabolisme tubuh setiap hari.
+                                {siteContent.benefits_card_1_description}
                             </p>
                         </div>
                         <div className="group rounded-3xl border border-surface-variant bg-white p-8 shadow-[0_24px_24px_-4px_rgba(27,43,30,0.05)] transition-all duration-300 hover:shadow-xl">
                             <span className="material-symbols-outlined mb-6 block text-4xl text-primary transition-transform group-hover:scale-110">
-                                shield_with_heart
+                                {siteContent.benefits_card_2_icon}
                             </span>
                             <h3 className="mb-3 text-xl font-semibold text-secondary">
-                                Imunitas Kuat
+                                {siteContent.benefits_card_2_title}
                             </h3>
                             <p className="leading-relaxed text-on-surface-variant">
-                                Kandungan antioksidan tinggi membantu menangkal
-                                radikal bebas dan memperkuat daya tahan.
+                                {siteContent.benefits_card_2_description}
                             </p>
                         </div>
                         <div className="group rounded-3xl border border-surface-variant bg-white p-8 shadow-[0_24px_24px_-4px_rgba(27,43,30,0.05)] transition-all duration-300 hover:shadow-xl">
                             <span className="material-symbols-outlined mb-6 block text-4xl text-primary transition-transform group-hover:scale-110">
-                                bolt
+                                {siteContent.benefits_card_3_icon}
                             </span>
                             <h3 className="mb-3 text-xl font-semibold text-secondary">
-                                Energi Alami
+                                {siteContent.benefits_card_3_title}
                             </h3>
                             <p className="leading-relaxed text-on-surface-variant">
-                                Alternatif kafein yang lebih ringan tanpa
-                                "crash", memberikan kesegaran instan secara
-                                alami.
+                                {siteContent.benefits_card_3_description}
                             </p>
                         </div>
                     </div>
@@ -285,7 +282,7 @@ export default function Landing({
                                     className="group overflow-hidden rounded-2xl bg-white shadow-sm"
                                     key={product.id}
                                 >
-                                    <div className="relative aspect-[4/5] overflow-hidden">
+                                    <div className="relative aspect-4/5 overflow-hidden">
                                         <img
                                             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                                             alt={product.name}
@@ -579,7 +576,7 @@ export default function Landing({
 
                 {/* WhatsApp FAB */}
                 <a
-                    className="group fixed right-8 bottom-8 z-[60] flex w-auto items-center gap-2 rounded-full bg-secondary px-6 py-3 text-on-secondary shadow-[0_24px_24px_-4px_rgba(27,43,30,0.08)] transition-all hover:scale-105 active:scale-95"
+                    className="group fixed right-8 bottom-8 z-60 flex w-auto items-center gap-2 rounded-full bg-secondary px-6 py-3 text-on-secondary shadow-[0_24px_24px_-4px_rgba(27,43,30,0.08)] transition-all hover:scale-105 active:scale-95"
                     href="https://wa.me/yournumber"
                 >
                     <span className="material-symbols-outlined fill-1">

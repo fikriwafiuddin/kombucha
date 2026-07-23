@@ -12,6 +12,8 @@ import {
 import {
     products as adminProducts,
     hero as adminHero,
+    about as adminAbout,
+    benefits as adminBenefits,
     testimonials as adminTestimonials,
     faqs as adminFaqs,
     gallery as adminGallery,
@@ -29,6 +31,16 @@ const mainNavItems: NavItemWithIcon[] = [
         title: 'Hero Banner',
         href: adminHero(),
         icon: 'view_carousel',
+    },
+    {
+        title: 'About Section',
+        href: adminAbout(),
+        icon: 'info',
+    },
+    {
+        title: 'Benefits Section',
+        href: adminBenefits(),
+        icon: 'spa',
     },
     {
         title: 'Testimonials',
