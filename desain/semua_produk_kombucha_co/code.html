@@ -1,0 +1,991 @@
+<!doctype html>
+<html class="light" lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Koleksi Rasa Kami - Kombucha Co.</title>
+        <!-- Google Fonts: Playfair Display for Serifs & Inter for Sans -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;600;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- Material Symbols -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            'surface-container': '#dff3df',
+                            background: '#ebffea',
+                            'on-secondary-fixed': '#062104',
+                            'on-primary-container': '#562b00',
+                            'tertiary-container': '#d98b76',
+                            'on-surface': '#0f1f13',
+                            primary: '#875224',
+                            'on-error-container': '#93000a',
+                            'primary-container': '#d2915d',
+                            'surface-tint': '#875224',
+                            'outline-variant': '#d6c3b6',
+                            'on-tertiary': '#ffffff',
+                            'surface-container-high': '#daedd9',
+                            'on-primary': '#ffffff',
+                            'on-secondary-container': '#4f6c45',
+                            'secondary-fixed': '#caecbc',
+                            error: '#ba1a1a',
+                            'surface-dim': '#ccdfcb',
+                            'inverse-primary': '#feb780',
+                            'on-tertiary-fixed': '#390c02',
+                            'on-primary-fixed': '#2f1500',
+                            'surface-variant': '#d4e8d4',
+                            'on-secondary': '#ffffff',
+                            'secondary-fixed-dim': '#afd0a1',
+                            'primary-fixed-dim': '#feb780',
+                            'inverse-surface': '#243427',
+                            'on-error': '#ffffff',
+                            tertiary: '#8d4d3b',
+                            'secondary-container': '#caecbc',
+                            'surface-container-highest': '#d4e8d4',
+                            outline: '#847469',
+                            'on-background': '#0f1f13',
+                            secondary: '#496640',
+                            'surface-bright': '#ebffea',
+                            'primary-fixed': '#ffdcc3',
+                            'surface-container-low': '#e5f9e4',
+                            'inverse-on-surface': '#e2f6e2',
+                            'on-secondary-fixed-variant': '#324e2a',
+                            'tertiary-fixed': '#ffdbd1',
+                            surface: '#ebffea',
+                            'error-container': '#ffdad6',
+                            'surface-container-lowest': '#ffffff',
+                            'on-tertiary-container': '#5b2617',
+                            'on-tertiary-fixed-variant': '#703626',
+                            'on-surface-variant': '#52443b',
+                            'tertiary-fixed-dim': '#ffb5a1',
+                            'on-primary-fixed-variant': '#6b3b0e',
+                        },
+                        borderRadius: {
+                            DEFAULT: '0.25rem',
+                            lg: '0.5rem',
+                            xl: '0.75rem',
+                            full: '9999px',
+                        },
+                        spacing: {
+                            'section-gap': '120px',
+                            'container-max': '1280px',
+                            gutter: '24px',
+                            'margin-mobile': '20px',
+                            unit: '8px',
+                            'margin-desktop': '64px',
+                        },
+                        fontFamily: {
+                            'display-lg': ['Playfair Display'],
+                            'body-lg': ['Inter'],
+                            'headline-lg': ['Playfair Display'],
+                            'body-md': ['Inter'],
+                            'display-lg-mobile': ['Playfair Display'],
+                            'headline-md': ['Playfair Display'],
+                            'label-md': ['Inter'],
+                        },
+                        fontSize: {
+                            'display-lg': [
+                                '56px',
+                                {
+                                    lineHeight: '64px',
+                                    letterSpacing: '-0.02em',
+                                    fontWeight: '700',
+                                },
+                            ],
+                            'body-lg': [
+                                '18px',
+                                { lineHeight: '28px', fontWeight: '400' },
+                            ],
+                            'headline-lg': [
+                                '32px',
+                                { lineHeight: '40px', fontWeight: '600' },
+                            ],
+                            'body-md': [
+                                '16px',
+                                { lineHeight: '24px', fontWeight: '400' },
+                            ],
+                            'display-lg-mobile': [
+                                '40px',
+                                {
+                                    lineHeight: '48px',
+                                    letterSpacing: '-0.01em',
+                                    fontWeight: '700',
+                                },
+                            ],
+                            'headline-md': [
+                                '24px',
+                                { lineHeight: '32px', fontWeight: '600' },
+                            ],
+                            'label-md': [
+                                '14px',
+                                {
+                                    lineHeight: '20px',
+                                    letterSpacing: '0.05em',
+                                    fontWeight: '600',
+                                },
+                            ],
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                    'FILL' 0,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 24;
+            }
+            .backdrop-blur-custom {
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+            .organic-bg-pattern {
+                background-color: #ebffea;
+                background-image: radial-gradient(
+                    #d4e8d4 1.5px,
+                    transparent 1.5px
+                );
+                background-size: 32px 32px;
+            }
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 6px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: #e5f9e4;
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: #afd0a1;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body
+        class="font-body-md custom-scrollbar bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container"
+    >
+        <!-- TopNavBar -->
+        <nav
+            class="fixed top-0 z-50 w-full bg-surface/80 shadow-sm backdrop-blur-md transition-all duration-300 dark:bg-surface/80 dark:shadow-none"
+        >
+            <div
+                class="mx-auto flex max-w-container-max items-center justify-between px-gutter py-4"
+            >
+                <a
+                    class="font-display-lg text-headline-md text-primary dark:text-primary-fixed-dim"
+                    href="#"
+                    >Kombucha Co.</a
+                ><button class="ml-auto p-2 text-primary md:hidden">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <div class="hidden items-center gap-8 md:flex">
+                    <a
+                        class="font-body-md text-label-md text-on-surface-variant transition-colors duration-300 hover:text-primary"
+                        href="#"
+                        >Tentang</a
+                    >
+                    <a
+                        class="font-body-md text-label-md text-on-surface-variant transition-colors duration-300 hover:text-primary"
+                        href="#"
+                        >Manfaat</a
+                    >
+                    <a
+                        class="font-body-md text-label-md border-b-2 border-primary pb-1 font-bold text-primary"
+                        href="#"
+                        >Produk</a
+                    >
+                    <a
+                        class="font-body-md text-label-md text-on-surface-variant transition-colors duration-300 hover:text-primary"
+                        href="#"
+                        >FAQ</a
+                    >
+                    <a
+                        class="font-body-md text-label-md text-on-surface-variant transition-colors duration-300 hover:text-primary"
+                        href="#"
+                        >Kontak</a
+                    >
+                </div>
+                <button
+                    class="font-label-md text-label-md hidden rounded-full bg-primary-container px-6 py-2 text-on-primary-container transition-all duration-200 hover:scale-105 active:scale-95 md:block"
+                >
+                    Login
+                </button>
+            </div>
+        </nav>
+        <main class="pt-32 pb-section-gap">
+            <!-- Hero Header -->
+            <header
+                class="mx-auto mb-8 max-w-container-max px-gutter text-center"
+            >
+                <span
+                    class="font-label-md text-label-md mb-4 block tracking-widest text-primary uppercase"
+                    >Artisan Fermentation</span
+                >
+                <h1
+                    class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-on-surface"
+                >
+                    Koleksi Rasa Kami
+                </h1>
+                <p
+                    class="text-body-lg mx-auto max-w-2xl text-on-surface-variant"
+                >
+                    Dibuat dengan kesabaran, difermentasi secara alami dari
+                    bahan-bahan organik pilihan untuk keseimbangan kesehatan
+                    pencernaan Anda.
+                </p>
+            </header>
+            <!-- Category Filters -->
+            <section class="mx-auto mb-8 max-w-container-max px-gutter">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button
+                        class="font-label-md text-label-md rounded-full bg-primary px-8 py-3 text-on-primary shadow-lg transition-all hover:bg-primary-container active:scale-95"
+                    >
+                        Semua
+                    </button>
+                    <button
+                        class="font-label-md text-label-md rounded-full border border-outline-variant/30 bg-surface-container-low px-8 py-3 text-on-surface-variant transition-all hover:bg-surface-container-highest active:scale-95"
+                    >
+                        Fruity
+                    </button>
+                    <button
+                        class="font-label-md text-label-md rounded-full border border-outline-variant/30 bg-surface-container-low px-8 py-3 text-on-surface-variant transition-all hover:bg-surface-container-highest active:scale-95"
+                    >
+                        Herbal
+                    </button>
+                    <button
+                        class="font-label-md text-label-md rounded-full border border-outline-variant/30 bg-surface-container-low px-8 py-3 text-on-surface-variant transition-all hover:bg-surface-container-highest active:scale-95"
+                    >
+                        Original
+                    </button>
+                </div>
+            </section>
+            <!-- Product Grid -->
+            <section class="mx-auto mb-16 max-w-container-max px-gutter">
+                <div
+                    class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                >
+                    <!-- Product Card 1: Wild Berry -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Close-up aesthetic shot of a glass kombucha bottle with a minimal brown label, filled with a vibrant deep red liquid. The bottle sits on a light cream stone surface with soft morning sunlight casting elegant shadows of botanical leaves. Minimalist high-end wellness product photography style."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuALsB-vAZzfKFZ5DvGqi9tb0lIrFM595OKNaAa5ixPMgOLDWoXrLcCsY1p-yR2F5QLUJzm1OUlRZ7YQCWkG0vcKCb2lNqKMO_AzyTX9Ppsz4C4eQHPYt3_1QXqgkP65UhO3q8EB5XOs03UJEoaegY7mtg6MIry7hVZUuZKNhObuwgTZBIcq3ExW4TYdA5CsinA1CZHr3LU_QPkS-Vz4wOu4_WaD2gFtxInYYCNGF6Few0YGn21Cvp57aJSaLfujImx3LufAkEba1kE"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-tertiary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-tertiary-container uppercase backdrop-blur-sm"
+                                    >Fruity</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Wild Berry
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 35k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Campuran segar stroberi hutan dan bluberi
+                                organik.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Fresh</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 2: Ginger Lemon -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Minimalist studio shot of a kombucha bottle containing a golden yellow sparkling liquid. The bottle is surrounded by a few slices of fresh ginger and a lemon wedge on a clean, light-filled countertop. The style is premium organic wellness with soft-focus background elements and warm earthy tones."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrxzIJ95a1iJGQWDDBD1QZFH64CwBmUAPdKhNQN6RWNnsdf50A1GFMvYMFpBm0JoSFuwKAFf3St9eC9zIANaacdv2DoE055a-WC75gUp03JAkvmFmZf382V29dFExSntbN8VIE74ci2x031FFLJAJNT0AngNDy86jeUfp2iYGOb9U-LFGTUnuFfMc_pLhwwNC7xNSQNTZdVrTwGxP-eiHOUbPNodeQK0jifcXTJdbVpBdjQu7vK_GP3ebNH05qu_J4xcQmW5qyO1Q"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-secondary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-secondary-container uppercase backdrop-blur-sm"
+                                    >Herbal</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Ginger Lemon
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 35k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Jahe emprit pedas dengan perasan lemon segar.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Immunity</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 3: Hibiscus Rose -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Elegant presentation of a pink-hued kombucha beverage in a glass bottle. Delicate dried rose petals are scattered around the base on a soft textured linen cloth. The lighting is ethereal and soft, emphasizing the botanical and artisanal nature of the drink. Colors are muted pinks and earthy browns."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhBHLPpC3gzgiy1O7RtC1vBRSc-LDr9wtA7dXxZtXxttyXMF2jvThXa9ql3AgGWoAJJe2l7Li-mhs_QDM1GTeYkWlxhe3-QWsEyes6ZjULo2rzqgWydjy-45yLl7uNS05NKJDqrZ0kHKPU8BTVjwawHDVneWO-1u0BQizoBcmzNqy2axM98JzDxYRQgPdbxFnSy-ypseUOeUsQS_hRclI47B25l3pOyQbGoFjEVxJ0H99TZ4u9rV6mBaoypDTal8_zVjJ0RzetDJA"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-tertiary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-tertiary-container uppercase backdrop-blur-sm"
+                                    >Herbal</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Hibiscus Rose
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 65k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Sentuhan bunga mawar dengan kesegaran kembang
+                                sepatu.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Aromatic</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >500ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 4: Pure Green Tea -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="A glass kombucha bottle filled with a light, translucent green liquid. It stands on a rustic wooden table next to a bowl of dried green tea leaves. The environment is a sunny fermentation kitchen with plants in the background. Natural lighting and organic textures dominate the scene."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiNbaQMNG5wq7dB3T9wwQCCbowxq3T_ZJBENRQuLy5nOk8p6_IgGu8xkXrr803-RTbWXLQ2eI1fwZSoinfQTzAS0vxqBDi3ZRzrRyOkJePQwNjM45zVNOtCFJtVIFHb7W-dFBU4Yam8ZjpkSb65gbLJ1KL2u6n2lKKQqDDmz-rNVW5pPSoxjY2tNvwT8wveDfFe5uMEG9WQm1Yf3p8nMNCKA_HWlL7V_j8K9iO1XdmgTNlUf1vFQTL_j_gV0Ht0WiNpn_xLTMQWL8"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-secondary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-secondary-container uppercase backdrop-blur-sm"
+                                    >Original</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Pure Green Tea
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 30k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Teh hijau pilihan dengan fermentasi sempurna.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Detox</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 5: Lavender Dream -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Soothing aesthetic image of a lavender-infused kombucha drink in a tall glass bottle. The liquid has a very subtle violet tint. Sprigs of fresh lavender are placed artfully around the bottle. Minimalist, clean apothecary style with soft shadows and a breathable composition."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5tDMQidQMCCO-2yDu2goFB6H-am3Jipop0k2JSkynx8qELrtT2L77hq7Qyhtiyija_5h4jMdM0asnvxiQruwSvS3DIxx3MjMN3NO9TikpPrUu6sh9JTB6_curVEsqdpJ6x-XJOuYXR9G_a9V_nGTYspFbXi-IAz-dVfk8M9TvqoxPcc2i_Efd6q2Be6qagF8bCbnCJUH0mw6DmRaiIfKzXKKiU-twmOssmfSM80jrfr13NhJ87qvgLoFEw_ShqeBGdP7AoemxvGI"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-tertiary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-tertiary-container uppercase backdrop-blur-sm"
+                                    >Herbal</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Lavender Dream
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 38k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Menenangkan pikiran dengan aroma lavender asli.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Relax</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 6: Tropical Passion -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="A vibrant orange-colored kombucha in a glass bottle, suggesting passion fruit flavor. The bottle is placed in a sun-drenched outdoor garden setting with blurred tropical foliage in the background. The lighting is bright and cheerful, highlighting the effervescence of the drink. High-quality lifestyle branding."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCln7IGiLQ2XBIYFvhQQfisYnpOdigpkV0qGK3Es64kaj6cqgMT6BmJwTeSNo0rE1HHgmolHLRXU5WBiQd7Ym46SvdbvYt1vtX8zP0Q9FxfVd32wBpPyfmucB3k5soPWI1HZG7SIYSyxUmKZE5ZsHm_CHUANxYwFh7rJFDHrofDaeNHlEE36KBPctsgb4deiVpF-ZFPuBG5_FMtVQaY3Ng_HPOXsvetacLRbLZeNkurPp8mAZ7Rjku1Oz1j18HG3LUtA9Ngbs4gY6U"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-tertiary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-tertiary-container uppercase backdrop-blur-sm"
+                                    >Fruity</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Tropical Passion
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 40k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Ledakan rasa markisa segar dalam setiap tegukan.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Exotic</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 7: Classic Black -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Sophisticated product shot of a kombucha bottle with a dark amber liquid. The scene is moody with dark wood textures and low-key lighting, emphasizing the premium quality of the 'Classic Black' tea fermentation. Minimalist and elegant composition with a focus on artisanal heritage."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmXlf9F6KOKaF6EDJxqYH9CaQvAJssZJBYpKqrk0DN-GBSv8KD-a81RLH06-DZS6llPlnaBzb24dXRD4cQRC-2OmtLyd0v8nM9Ar3zhXmUxZf4ljyzzXGEV3WEaSOO0yWt0eS9rUeDeB687mZIiqMn76tB3u7JswMMHhGrCtsuGSqwqaZFwBVuyTM1aIoVruAHtJ79WMOwF9mwxAbtPwM9LNGd2v6kb_Aq4fidENMwLyI14vT4mS8vmy8lBr3W280memAte6Z0zZI"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-secondary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-secondary-container uppercase backdrop-blur-sm"
+                                    >Original</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Classic Black
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 30k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Rasa otentik fermentasi teh hitam berkualitas
+                                tinggi.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Legacy</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >250ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Product Card 8: Apple Cinnamon -->
+                    <div
+                        class="group translate-y-0 overflow-hidden rounded-xl bg-surface-container-lowest opacity-100 shadow-[0_24px_48px_-12px_rgba(27,43,30,0.08)] transition-all duration-500 duration-700 hover:-translate-y-2"
+                    >
+                        <div
+                            class="relative h-80 overflow-hidden bg-surface-variant"
+                        >
+                            <img
+                                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                data-alt="Cozy, warm autumn-themed shot of a kombucha bottle containing a golden-brown liquid. Cinnamon sticks and fresh red apple slices are arranged around the bottle on a rustic wooden tray. The lighting is warm and inviting, evoking a sense of home-brewed comfort and natural ingredients."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk3Ln-S--SIrkipvEpNpfHaRvwxwFpjsOqlus_XtJu56Yt51rFOzz53JpYkPhTcz3x2B4FUN3DtU6PXuZClXRACFXEBhgy9SYG06zUF50ZDynq_ZJxmXH2shqyZE7pMWYQYq5KnAHQg0t5hVOqPwEWAgKncZGZeNdbjCSQ003b4O-F4EvoOxSKt5_zlupXVovlI9Sr4vSQlxbCmMQRnx3yJxzVOdkKCQ2aVIVq4HXGg3IDKpLVqrWkwbc8IjqG933c9MKakXfPLWA"
+                            />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="rounded-full bg-tertiary-container/90 px-3 py-1 text-[10px] font-bold tracking-wider text-on-tertiary-container uppercase backdrop-blur-sm"
+                                    >Fruity</span
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-2 flex items-start justify-between">
+                                <h3
+                                    class="font-headline-md text-headline-md text-on-surface"
+                                >
+                                    Apple Cinnamon
+                                </h3>
+                                <span class="font-bold text-primary"
+                                    >Rp 68k</span
+                                >
+                            </div>
+                            <p
+                                class="text-label-md mb-4 text-on-surface-variant"
+                            >
+                                Perpaduan klasik apel manis dan aroma kayu
+                                manis.
+                            </p>
+                            <div class="mb-6 flex flex-wrap gap-2">
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >Seasonal</span
+                                >
+                                <span
+                                    class="rounded bg-surface-container px-2 py-1 text-[11px] font-semibold text-on-secondary-container uppercase"
+                                    >500ml</span
+                                >
+                            </div>
+                            <button
+                                class="font-label-md flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 text-on-primary transition-colors group-hover:bg-primary-container"
+                            >
+                                <span class="material-symbols-outlined text-sm"
+                                    >chat</span
+                                >
+                                Pesan via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Brewing Cycle Section -->
+            <section class="organic-bg-pattern relative overflow-hidden py-16">
+                <div
+                    class="relative z-10 mx-auto max-w-container-max px-gutter"
+                >
+                    <div class="grid items-center gap-16 lg:grid-cols-2">
+                        <div class="order-2 lg:order-1">
+                            <div class="relative">
+                                <img
+                                    class="aspect-[4/3] w-full rounded-2xl object-cover shadow-2xl"
+                                    data-alt="A cinematic, detailed shot of a fermentation room with large glass jars (crocks) filled with kombucha, covered with breathable white cloths. The room is filled with soft, warm light filtering through window shutters, creating a peaceful and artisanal atmosphere. Small bubbles are visible in the jars, indicating active fermentation."
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdACDHMSjZTONfYHjvh6RcTgInoABed3wk_JukaGwaYH5TbRHjwrTltSnZyJXRFNLJGZcaTJadUEw6dkK2Nbz47OG4-DKStOultJdrx3goXeiTKxt2tiFAHr_kYGl7KQNlxj20V9jL0zOiSdbFTNB4aj3__v2URwDD8Q7QnkNpuWiGBllT7eFvM9ta7ULLBE8mZ93oYfEEGGlXLaHQ_pK4L2WTtRkpQlL-mSrYRyc1ZlSGjCmguTi3BXYsDxI2r-O68j74BZlFM8Y"
+                                />
+                                <div
+                                    class="absolute -right-6 -bottom-6 hidden rounded-xl bg-primary p-8 text-on-primary shadow-xl md:block"
+                                >
+                                    <p
+                                        class="font-display-lg text-headline-lg italic"
+                                    >
+                                        "Freshly Brewed Every Week"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2">
+                            <span
+                                class="font-label-md text-label-md mb-4 block tracking-widest text-primary uppercase"
+                                >Our Process</span
+                            >
+                            <h2
+                                class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 leading-tight"
+                            >
+                                Siklus Seduh Kami
+                            </h2>
+                            <div class="space-y-8">
+                                <div class="flex gap-6">
+                                    <div
+                                        class="font-headline-md flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary-container font-bold text-secondary"
+                                    >
+                                        1
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-headline-md text-headline-md mb-2"
+                                        >
+                                            Pemilihan Bahan
+                                        </h4>
+                                        <p class="text-on-surface-variant">
+                                            Kami hanya menggunakan teh daun utuh
+                                            dan gula tebu organik terbaik
+                                            sebagai dasar setiap batch.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6">
+                                    <div
+                                        class="font-headline-md flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary-container font-bold text-secondary"
+                                    >
+                                        2
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-headline-md text-headline-md mb-2"
+                                        >
+                                            Fermentasi Terkendali
+                                        </h4>
+                                        <p class="text-on-surface-variant">
+                                            Setiap jar dipantau secara manual
+                                            untuk memastikan keseimbangan
+                                            keasaman dan kadar probiotik yang
+                                            optimal.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6">
+                                    <div
+                                        class="font-headline-md flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary-container font-bold text-secondary"
+                                    >
+                                        3
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="font-headline-md text-headline-md mb-2"
+                                        >
+                                            Small Batch Bottling
+                                        </h4>
+                                        <p class="text-on-surface-variant">
+                                            Dikemas dalam jumlah terbatas setiap
+                                            minggunya untuk menjamin kesegaran
+                                            maksimal saat tiba di tangan Anda.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer -->
+        <footer
+            class="w-full bg-surface-container-low py-16 dark:bg-inverse-surface"
+        >
+            <div
+                class="mx-auto flex max-w-container-max flex-col items-start justify-between px-gutter md:flex-row"
+            >
+                <div class="mb-12 md:mb-0">
+                    <a
+                        class="font-display-lg text-headline-md mb-4 block text-primary dark:text-primary-fixed-dim"
+                        href="#"
+                        >Kombucha Co.</a
+                    >
+                    <p class="max-w-sm text-on-surface-variant">
+                        Minuman fermentasi artisan yang mengutamakan rasa dan
+                        kesehatan usus Anda secara alami.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-16">
+                    <div>
+                        <h5
+                            class="font-label-md text-label-md mb-6 tracking-wider text-secondary uppercase"
+                        >
+                            Navigasi
+                        </h5>
+                        <ul class="space-y-4">
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >Tentang Kami</a
+                                >
+                            </li>
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >Proses Brew</a
+                                >
+                            </li>
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >Kebijakan Privasi</a
+                                >
+                            </li>
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >Syarat &amp; Ketentuan</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5
+                            class="font-label-md text-label-md mb-6 tracking-wider text-secondary uppercase"
+                        >
+                            Socials
+                        </h5>
+                        <ul class="space-y-4">
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >Instagram</a
+                                >
+                            </li>
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >TikTok</a
+                                >
+                            </li>
+                            <li class="">
+                                <a
+                                    class="text-on-surface-variant transition-colors hover:text-primary"
+                                    href="#"
+                                    >WhatsApp</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="text-body-md mx-auto mt-16 max-w-container-max border-t border-outline-variant/30 px-gutter pt-8 text-on-surface-variant opacity-80"
+            >
+                © 2024 Kombucha Co. Artisan Fermentation.
+            </div>
+        </footer>
+        <!-- BottomNavBar (FAB Variant as per JSON) -->
+        <a
+            class="fixed bottom-8 left-8 z-[60] flex w-auto items-center gap-2 rounded-full bg-secondary px-6 py-3 text-on-secondary shadow-xl transition-all hover:scale-105 active:scale-95"
+            href="https://wa.me/yournumber"
+        >
+            <span class="material-symbols-outlined" data-icon="chat">chat</span>
+            <span class="font-body-md text-label-md">Chat Sekarang</span>
+        </a>
+        <!-- Interactive Scripts -->
+        <script>
+            // Smooth reveal on scroll interaction
+            const observerOptions = {
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(
+                            'opacity-100',
+                            'translate-y-0',
+                        );
+                        entry.target.classList.remove(
+                            'opacity-0',
+                            'translate-y-10',
+                        );
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.group').forEach((card) => {
+                card.classList.add(
+                    'transition-all',
+                    'duration-700',
+                    'opacity-0',
+                    'translate-y-10',
+                );
+                observer.observe(card);
+            });
+
+            // Simple Filter Logic (Visual only for this demo)
+            const filterButtons = document.querySelectorAll('section button');
+            filterButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach((b) => {
+                        b.classList.remove('bg-primary', 'text-on-primary');
+                        b.classList.add(
+                            'bg-surface-container-low',
+                            'text-on-surface-variant',
+                        );
+                    });
+                    btn.classList.add('bg-primary', 'text-on-primary');
+                    btn.classList.remove(
+                        'bg-surface-container-low',
+                        'text-on-surface-variant',
+                    );
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 20) {
+                    nav.classList.add('py-2', 'shadow-md');
+                    nav.classList.remove('py-4', 'shadow-sm');
+                } else {
+                    nav.classList.add('py-4', 'shadow-sm');
+                    nav.classList.remove('py-2', 'shadow-md');
+                }
+            });
+        </script>
+    </body>
+</html>

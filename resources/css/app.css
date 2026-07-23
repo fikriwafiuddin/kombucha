@@ -1,0 +1,206 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    /* Design System Colors - Kombucha Co. */
+    --color-surface-container: #dff3df;
+    --color-background: #ebffea;
+    --color-on-secondary-fixed: #062104;
+    --color-on-primary-container: #562b00;
+    --color-tertiary-container: #d98b76;
+    --color-on-surface: #0f1f13;
+    --color-primary: #875224;
+    --color-on-error-container: #93000a;
+    --color-primary-container: #d2915d;
+    --color-surface-tint: #875224;
+    --color-outline-variant: #d6c3b6;
+    --color-on-tertiary: #ffffff;
+    --color-surface-container-high: #daedd9;
+    --color-on-primary: #ffffff;
+    --color-on-secondary-container: #4f6c45;
+    --color-secondary-fixed: #caecbc;
+    --color-error: #ba1a1a;
+    --color-surface-dim: #ccdfcb;
+    --color-inverse-primary: #feb780;
+    --color-on-tertiary-fixed: #390c02;
+    --color-on-primary-fixed: #2f1500;
+    --color-surface-variant: #d4e8d4;
+    --color-on-secondary: #ffffff;
+    --color-secondary-fixed-dim: #afd0a1;
+    --color-primary-fixed-dim: #feb780;
+    --color-inverse-surface: #243427;
+    --color-on-error: #ffffff;
+    --color-tertiary: #8d4d3b;
+    --color-secondary-container: #caecbc;
+    --color-surface-container-highest: #d4e8d4;
+    --color-outline: #847469;
+    --color-on-background: #0f1f13;
+    --color-secondary: #496640;
+    --color-surface-bright: #ebffea;
+    --color-primary-fixed: #ffdcc3;
+    --color-surface-container-low: #e5f9e4;
+    --color-inverse-on-surface: #e2f6e2;
+    --color-on-secondary-fixed-variant: #324e2a;
+    --color-tertiary-fixed: #ffdbd1;
+    --color-surface: #ebffea;
+    --color-error-container: #ffdad6;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-tertiary-container: #5b2617;
+    --color-on-tertiary-fixed-variant: #703626;
+    --color-on-surface-variant: #52443b;
+    --color-tertiary-fixed-dim: #ffb5a1;
+    --color-on-primary-fixed-variant: #6b3b0e;
+
+    /* Dashboard/UI Colors (for sidebar, etc.) */
+    --color-card: oklch(1 0 0);
+    --color-card-foreground: oklch(0.145 0 0);
+    --color-popover: oklch(1 0 0);
+    --color-popover-foreground: oklch(0.145 0 0);
+    --color-primary-foreground: oklch(0.985 0 0);
+    --color-secondary-foreground: oklch(0.205 0 0);
+    --color-muted: oklch(0.97 0 0);
+    --color-muted-foreground: oklch(0.556 0 0);
+    --color-accent: oklch(0.97 0 0);
+    --color-accent-foreground: oklch(0.205 0 0);
+    --color-destructive: oklch(0.577 0.245 27.325);
+    --color-destructive-foreground: oklch(0.577 0.245 27.325);
+    --color-border: oklch(0.922 0 0);
+    --color-input: oklch(0.922 0 0);
+    --color-ring: oklch(0.87 0 0);
+    --color-sidebar: oklch(0.985 0 0);
+    --color-sidebar-foreground: oklch(0.145 0 0);
+    --color-sidebar-primary: oklch(0.205 0 0);
+    --color-sidebar-primary-foreground: oklch(0.985 0 0);
+    --color-sidebar-accent: oklch(0.97 0 0);
+    --color-sidebar-accent-foreground: oklch(0.205 0 0);
+    --color-sidebar-border: oklch(0.922 0 0);
+    --color-sidebar-ring: oklch(0.87 0 0);
+
+    /* Typography */
+    --font-sans:
+        'Inter', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --font-serif:
+        'Playfair Display', ui-serif, 'Georgia', 'Cambria',
+        'Times New Roman', 'Times', serif;
+
+    /* Border Radius */
+    --radius-lg: 0.5rem;
+    --radius-md: 0.25rem;
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-full: 9999px;
+    --radius: 0.625rem;
+
+    /* Spacing */
+    --spacing-section-gap: 120px;
+    --spacing-container-max: 1280px;
+    --spacing-gutter: 24px;
+    --spacing-margin-mobile: 20px;
+    --spacing-unit: 8px;
+    --spacing-margin-desktop: 64px;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-on-surface;
+    }
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.material-symbols-outlined.fill-1 {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom utilities */
+.glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Custom scrollbar for products page */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #e5f9e4;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #afd0a1;
+    border-radius: 10px;
+}
+
+/* Organic background pattern */
+.organic-bg-pattern {
+    background-color: #ebffea;
+    background-image: radial-gradient(#d4e8d4 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+}
+
+/* Custom backdrop blur */
+.backdrop-blur-custom {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Scroll animations */
+.animate-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.slide-in-from-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

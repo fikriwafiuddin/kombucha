@@ -1,0 +1,379 @@
+<!DOCTYPE html><html class="light" lang="id"><head></head><body class="bg-background text-on-surface font-body-md selection:bg-primary-container/30">```html
+<meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">try{
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#dff3df",
+                        "background": "#ebffea",
+                        "on-secondary-fixed": "#062104",
+                        "on-primary-container": "#562b00",
+                        "tertiary-container": "#d98b76",
+                        "on-surface": "#0f1f13",
+                        "primary": "#875224",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#d2915d",
+                        "surface-tint": "#875224",
+                        "outline-variant": "#d6c3b6",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#daedd9",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#4f6c45",
+                        "secondary-fixed": "#caecbc",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#ccdfcb",
+                        "inverse-primary": "#feb780",
+                        "on-tertiary-fixed": "#390c02",
+                        "on-primary-fixed": "#2f1500",
+                        "surface-variant": "#d4e8d4",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#afd0a1",
+                        "primary-fixed-dim": "#feb780",
+                        "inverse-surface": "#243427",
+                        "on-error": "#ffffff",
+                        "tertiary": "#8d4d3b",
+                        "secondary-container": "#caecbc",
+                        "surface-container-highest": "#d4e8d4",
+                        "outline": "#847469",
+                        "on-background": "#0f1f13",
+                        "secondary": "#496640",
+                        "surface-bright": "#ebffea",
+                        "primary-fixed": "#ffdcc3",
+                        "surface-container-low": "#e5f9e4",
+                        "inverse-on-surface": "#e2f6e2",
+                        "on-secondary-fixed-variant": "#324e2a",
+                        "tertiary-fixed": "#ffdbd1",
+                        "surface": "#ebffea",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#5b2617",
+                        "on-tertiary-fixed-variant": "#703626",
+                        "on-surface-variant": "#52443b",
+                        "tertiary-fixed-dim": "#ffb5a1",
+                        "on-primary-fixed-variant": "#6b3b0e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    }catch(_e){}</script>
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-surface-container-low border-r border-outline-variant hidden md:flex flex-col">
+<div class="p-6">
+<h1 class="font-display-lg text-headline-md text-primary tracking-tight">Kombucha Co.</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold opacity-60 mt-1">Admin Panel</p>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-2 overflow-y-auto custom-scrollbar">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-on-surface-variant hover:bg-surface-variant/50" href="#">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span class="font-label-md text-label-md">Kelola Produk</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 bg-primary-container text-on-primary-container font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">view_carousel</span>
+<span class="font-label-md text-label-md">Kelola Konten</span>
+</a>
+</nav>
+<div class="p-4 border-t border-outline-variant">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-high">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-label-md font-bold truncate">Master Brewer</p>
+<p class="text-[11px] text-on-surface-variant truncate">admin@kombucha.co</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 h-screen overflow-y-auto custom-scrollbar bg-surface/30">
+<!-- Topbar -->
+<header class="h-20 flex items-center justify-between px-8 bg-surface/80 backdrop-blur-md sticky top-0 z-10 border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface">Manajemen Konten Landing Page</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">publish</span>
+                    Publikasikan Perubahan
+                </button>
+</div>
+</header>
+<div class="p-8 max-w-[1400px] mx-auto space-y-12">
+<!-- 1. Hero Banner Section -->
+<section class="scroll-mt-24 space-y-6" id="hero">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined">view_carousel</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Hero Banner</h3>
+<p class="text-xs text-on-surface-variant">Update section utama yang dilihat pengunjung pertama kali</p>
+</div>
+</div>
+<div class="glass-panel p-8 rounded-[32px] border border-outline-variant/20 grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Judul Utama (Headline)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all font-display-lg text-primary" type="text" value="Hidup Sehat Mulai Dari Gut Health Anda">
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Sub-headline (Deskripsi)</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all text-on-surface" rows="4">Kombucha artisan berkualitas tinggi yang difermentasi dengan cinta dan bahan alami terbaik untuk keseimbangan tubuh Anda setiap harinya.</textarea>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Teks Tombol (CTA)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3" type="text" value="Pesan Sekarang">
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Link Tombol (WA/Catalog)</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3" type="text" value="https://wa.me/628123456789">
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<label class="text-label-md font-bold text-on-surface-variant block">Preview Image Hero</label>
+<div class="relative group aspect-video rounded-3xl overflow-hidden border-2 border-dashed border-outline-variant flex flex-col items-center justify-center bg-surface-container-high/50 hover:bg-surface-container-high transition-colors">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="Artisanal kombucha bottles aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVC18ofQwzTQEeyqgnPHPXXTdCxjwmHmdp_Cpny3olyyiMCr-t90LBIcRNOI_G9Clb5BREK2jpgR_SGCt2iymXeqXjfvikLFqy2YpVYzOUEvSC_sBM_fPgY-GLw2_yX3Oq8LP7jExovGe3Ui2KKcAR1ZVTgqRhvmo7_SyJlmKGEWwDpHvjPx4zM0hk3aPFi2tnvQWg9woyMfoZr_BX-th-bZesrXa1Yb81QfdWW2czU2SNat60-tEZq14cHhNePOpg84zfOtsg6wo">
+<div class="relative z-10 flex flex-col items-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-[48px] mb-2">image</span>
+<p class="text-label-md font-bold text-on-surface">Ubah Foto Hero</p>
+<p class="text-[11px] text-on-surface-variant">Rekomendasi: 1920x1080px (Max 2MB)</p>
+</div>
+<input class="absolute inset-0 opacity-0 cursor-pointer" type="file">
+</div>
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-2xl font-bold transition-all hover:shadow-md">Simpan Pengaturan Hero</button>
+</div>
+</div>
+</section>
+<!-- 2. Testimonials Section -->
+<section class="scroll-mt-24 space-y-6" id="testimonials">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined">reviews</span>
+</div>
+<div class="">
+<h3 class="font-headline-md text-headline-md">Testimonials</h3>
+<p class="text-xs text-on-surface-variant">Review jujur dari pelanggan setia Kombucha Co.</p>
+</div>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-xl font-label-md flex items-center gap-2 text-sm shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        Tambah Review
+                    </button>
+</div>
+<div class="bg-surface-container-lowest rounded-[32px] border border-outline-variant/30 overflow-hidden shadow-sm">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-4 font-label-md text-on-surface-variant uppercase text-[11px] tracking-wider">Pelanggan</th>
+<th class="px-8 py-4 font-label-md text-on-surface-variant uppercase text-[11px] tracking-wider">Review Content</th>
+<th class="px-8 py-4 font-label-md text-on-surface-variant uppercase text-[11px] tracking-wider">Rating</th>
+<th class="px-8 py-4 font-label-md text-on-surface-variant uppercase text-[11px] tracking-wider">Status</th>
+<th class="px-8 py-4 font-label-md text-on-surface-variant uppercase text-[11px] tracking-wider text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-variant/5 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcNGLY_mhUimPANekG1_yQlLBtIeh6LtTXbNNGoEV-5c9ObYrVwmJno-3dpwt0uRIElVgKO-CqO7elmMM7HRm5xWM7obmCqV5ydnsure-W3Y1AwHnJRcLZE5Kzvog_qVXJM63npZCXzSaz5oE-0ZW0zrDZlV-jk2BlRcivtT3McFgGQY-JPqfhxr9SD0bWH6dXscGMBqCAg0mW5CqdRmz4AGNhKHOqM4_ZXbzshVTracEwr3bvffzKAMaLPIIVuoJpzMSPBiUm90U">
+</div>
+<div class="">
+<p class="font-bold text-sm">Amelia S.</p>
+<p class="text-[11px] text-on-surface-variant">Verified Buyer</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<p class="text-sm line-clamp-1 italic text-on-surface-variant">"Rasanya sangat segar dan membantu pencernaan saya..."</p>
+</td>
+<td class="px-8 py-5">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase">Published</span>
+</td>
+<td class="px-8 py-5 text-right space-x-1">
+<button class="p-2 rounded-lg hover:bg-surface-container-high text-primary"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-2 rounded-lg hover:bg-error-container text-error"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 3. FAQ & Gallery Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- FAQ Management -->
+<div class="scroll-mt-24 space-y-6" id="faq">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined">quiz</span>
+</div>
+<h3 class="font-headline-md text-headline-md">FAQ List</h3>
+</div>
+<button class="text-primary font-bold text-sm">+ Tambah FAQ</button>
+</div>
+<div class="space-y-3 custom-scrollbar max-h-[500px] overflow-y-auto pr-2">
+<div class="p-5 bg-surface-container-low rounded-3xl border border-outline-variant/30 group">
+<div class="flex justify-between items-start mb-2">
+<p class="font-bold text-primary">Apa itu Kombucha?</p>
+<div class="flex gap-2">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">drag_handle</span></button>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Teh fermentasi yang kaya akan probiotik, antioksidan, dan asam organik yang baik untuk kesehatan pencernaan.</p>
+</div>
+<div class="p-5 bg-surface-container-low rounded-3xl border border-outline-variant/30 group">
+<div class="flex justify-between items-start mb-2">
+<p class="font-bold text-primary">Daya simpan produk?</p>
+<div class="flex gap-2">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">drag_handle</span></button>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Produk kami tahan hingga 3 bulan di dalam kulkas pada suhu 2-4 derajat Celcius.</p>
+</div>
+</div>
+</div>
+<!-- Gallery Management -->
+<div class="scroll-mt-24 space-y-6" id="gallery">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined">gallery_thumbnail</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Gallery Grid</h3>
+</div>
+<button class="text-primary font-bold text-sm">+ Upload Foto</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="relative aspect-square rounded-2xl overflow-hidden group border border-outline-variant/30">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu2znqdy7SilMVbSjEJoOk7gdlQiUEUIG_t3zBKXcsihygdpsymLBBTBGYzglfxRaKSQ-9WSbTXP8vrkvUvLa91RGAl1D1K-NV1SGVu0hcF6sDiGzUQLBuFOj9Yr6APdP1OIDfn5ngq4k-HOtHPw3NXAuLDGIR6IudGRp4k3uogzdDpwAqmk9OtJKLzkGX460hkRkGKMIb18tv-wlw8ZJqQj8xHsg3vVtMxzlBaO-m_KHXC1-EvpUZV8nT60IGECxIu6-ZZtOyadM">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="p-2 bg-white rounded-full text-primary"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 bg-white rounded-full text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+<div class="relative aspect-square rounded-2xl overflow-hidden group border border-outline-variant/30">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBie6A9Q_8IP0qlWo3TR_fsxhn0MA0xOJP4SaClrD2sQYSHIX28iS9TG2hoKNiS8DaoHyahB6zHfv8a-TokfH_KaIJYgXijRNo3xmFYWsgBa_X5kT-1q0dtwOw44eMkLsnC-lZv7M0hcApbtp45gE82kk_HqGA0qakCybC4_GlnK9IdlKl6Uogd-BOsBLldXD1D7_HXinDCed12KYFxZBnyiw6ixemFdyEuUe4A_KcLM24BLpn4U-ZQuZDsOK8cT2_skopSKbRZues">
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+<button class="p-2 bg-white rounded-full text-primary"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-2 bg-white rounded-full text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Contact Info & Settings Section -->
+<section class="scroll-mt-24 space-y-6" id="contact">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined">contact_phone</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md">Contact Info &amp; Settings</h3>
+<p class="text-xs text-on-surface-variant">Informasi operasional dan kontak WhatsApp</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-[32px] p-8 border border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">WhatsApp Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">+62</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="812-3456-7890">
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Jam Operasional</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="Senin - Sabtu (08:00 - 18:00)">
+</div>
+<div class="space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Instagram @Handle</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="@kombucha.co.id">
+</div>
+<div class="md:col-span-3 space-y-2">
+<label class="text-label-md font-bold text-on-surface-variant">Alamat Fermentation Studio</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-2xl px-4 py-3 focus:ring-2 focus:ring-primary/20 transition-all" rows="2">Jl. Kemang Timur No. 42, Jakarta Selatan, DKI Jakarta 12730</textarea>
+</div>
+</div>
+<div class="mt-8 flex justify-end">
+<button class="bg-secondary text-on-secondary px-8 py-3 rounded-2xl font-bold transition-transform active:scale-95 shadow-lg shadow-secondary/10">Simpan Pengaturan Kontak</button>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-auto py-10 px-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 bg-surface-container-low/30">
+<p class="text-label-md text-on-surface-variant opacity-60">© 2024 Kombucha Co. Artisan Fermentation. v1.0.4-stable</p>
+<div class="flex gap-6">
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Dokumentasi</a>
+<a class="text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Floating Action Button -->
+
+<script>
+    // Smooth scrolling for sidebar links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#' || !targetId) return;
+            
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>```
+
+</body></html>

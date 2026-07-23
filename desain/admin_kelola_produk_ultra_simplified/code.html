@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelola Produk | Kombucha Co. Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-highest": "#d4e8d4",
+                    "on-tertiary-fixed": "#390c02",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface": "#ebffea",
+                    "on-background": "#0f1f13",
+                    "secondary-container": "#caecbc",
+                    "outline-variant": "#d6c3b6",
+                    "on-tertiary-container": "#5b2617",
+                    "surface-container-low": "#e5f9e4",
+                    "primary-container": "#d2915d",
+                    "on-surface-variant": "#52443b",
+                    "on-secondary-fixed-variant": "#324e2a",
+                    "inverse-surface": "#243427",
+                    "surface-dim": "#ccdfcb",
+                    "on-tertiary-fixed-variant": "#703626",
+                    "tertiary-fixed": "#ffdbd1",
+                    "background": "#ebffea",
+                    "secondary-fixed-dim": "#afd0a1",
+                    "on-secondary-fixed": "#062104",
+                    "surface-tint": "#875224",
+                    "secondary-fixed": "#caecbc",
+                    "primary-fixed": "#ffdcc3",
+                    "tertiary": "#8d4d3b",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#2f1500",
+                    "on-primary-fixed-variant": "#6b3b0e",
+                    "inverse-on-surface": "#e2f6e2",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#feb780",
+                    "outline": "#847469",
+                    "surface-container-high": "#daedd9",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#ebffea",
+                    "primary": "#875224",
+                    "inverse-primary": "#feb780",
+                    "surface-variant": "#d4e8d4",
+                    "on-primary-container": "#562b00",
+                    "tertiary-fixed-dim": "#ffb5a1",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#0f1f13",
+                    "surface-container": "#dff3df",
+                    "secondary": "#496640",
+                    "on-secondary-container": "#4f6c45",
+                    "tertiary-container": "#d98b76"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #ebffea; /* surface */
+            color: #0f1f13; /* on-background */
+        }
+        .sidebar-item {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .sidebar-item:hover {
+            background-color: rgba(210, 145, 93, 0.1);
+        }
+        .data-table-container {
+            box-shadow: 0 4px 20px -2px rgba(27, 43, 30, 0.05);
+        }
+        .glass-nav {
+            background: rgba(235, 255, 234, 0.8);
+            backdrop-filter: blur(8px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #e5f9e4;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d2915d;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div class="flex min-h-screen">
+<!-- Sidebar Navigation (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 fixed inset-y-0 bg-surface-container border-r border-outline-variant/30 z-50">
+<div class="p-6">
+<h1 class="font-display-lg text-headline-md text-primary tracking-tight">Kombucha Co.</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mt-1">Admin Dashboard</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4 overflow-y-auto custom-scrollbar">
+<div class="pt-4 pb-2 px-4 text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest">Manajemen</div>
+<a class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Kelola Produk</span>
+</a>
+<a class="sidebar-item flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-md text-label-md">Kelola Konten</span>
+</a>
+</nav>
+<div class="p-6 border-t border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-bold text-sm text-on-surface truncate">Admin Utama</p>
+<p class="text-xs text-on-surface-variant truncate">admin@kombucha.co</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 bg-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="glass-nav sticky top-0 z-40 px-6 md:px-margin-desktop py-4 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-md text-headline-md text-primary">Kelola Produk</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+                        Tambah Produk Baru
+                    </button>
+</div>
+</header>
+<div class="px-6 md:px-margin-desktop py-8 max-w-container-max mx-auto">
+<!-- Statistics Grid -->
+<!-- Table Controls -->
+<!-- Data Table Container -->
+<div class="data-table-container bg-surface-container-lowest rounded-[32px] overflow-hidden border border-outline-variant/10">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="px-6 py-5 font-headline-md text-xs uppercase tracking-widest text-on-surface-variant/70">Produk</th>
+<th class="px-6 py-5 font-headline-md text-xs uppercase tracking-widest text-on-surface-variant/70">Harga</th>
+<th class="px-6 py-5 font-headline-md text-xs uppercase tracking-widest text-on-surface-variant/70 text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Product 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A professional studio product photography of a premium glass bottle of Kombucha. The liquid inside is a deep amber color with visible ginger bits. The label is minimalist cream-colored with elegant gold serif typography. Soft warm lighting reflects on the glass surface, against a soft neutral botanical background in light mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3ll1rPw4kS_8xR31P6y2difIuRXhSM0_fN3dQwbYwhn0CqE48yA8o4fCX3JGi4xjesAdOydFx0TZ8ydByChe-k1GOPdRxXVUJdKD6GK3dXPMNvT8Tj7rjxh3hDn8TNf5D9DYwcvt6ypIve8y8Lj22qtQHO869924UhZ1Z6soU6uUZbQ5Prw1LyvPzToOML8MqzXUVai7MUTZ90GxwtDARzQmqAA6tnNCZXCAjLkf3A6rZ7mgh94ILhto9Fs-ciJyb-O2i8KXTwLw"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Wild Ginger Roots</p>
+<p class="text-xs text-on-surface-variant/60">SKU: KOM-GGR-01</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-primary">Rp 45.000</p>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg text-on-surface-variant transition-all active:scale-90">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/20 rounded-lg text-error transition-all active:scale-90">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Product 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A macro studio shot of a kombucha bottle filled with vibrant pink liquid made from hibiscus and berries. The bottle features condensation droplets, conveying freshness. The lighting is bright and clean with soft shadows, using the primary amber and forest green tones of the brand identity. High-end artisanal wellness aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBozcWbDiSF7x8WhcQL3_d7lcanBS1JyNC7NcRRM4w7wxt6hXBiJB_Gjh7Ecus7b0YTcMltCF_dmOovbvxR2rqoj9XO6SocHxBAQDaRgSBSjd8qwPxCyt2wLQTr8rHAd0AmG0fi1gMDVRAo68R8eQjnmH6TDgLpbuxysxEXeIsdZkdiapdcGwNstXzzBoKBgxgjFts4AJ7tkHhYtzAEF6TVf7zuVqDiMKEYY8aEDbqKItMXxC-Tvs3GAO3BxG_i_hD3Ew0DBR7qhXI"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Hibiscus Berry Bloom</p>
+<p class="text-xs text-on-surface-variant/60">SKU: KOM-HBB-02</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-primary">Rp 48.000</p>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg text-on-surface-variant transition-all">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/20 rounded-lg text-error transition-all">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Product 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl overflow-hidden bg-surface-container opacity-60 grayscale">
+<img class="w-full h-full object-cover" data-alt="Product photography of a botanical kombucha bottle with sage and lemon. The bottle is empty to show the branding, presented on a rustic wooden table with scattered herbs. The style is moody yet clean, artisanal minimalist, focusing on the craftsmanship of the fermentation process. High key lighting with organic shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyNNsTGdWgX6pMeJ_1s5AtF4jy26wWQCDJlKy-Yoqk_AmuElBnbuHl5svq-FQGG-bJELc15V7N2HmmfSG6oPD3LQUEmCE1zyX3J2IwygpklG8TyUZUEJ7Q_9p8LHEaY7J2C_9xOqXdSDvgq3zHR_2C58pF-wcsgGPsLZbsyEkSuUf-xWP3zXoQ_gYvBQm5ae5Px21-jN1e6WTPFcXrR40agBbuOAszkHyUEOwpxtc7UzEaF0Gzbr10WUb42-jAg2psamSTT5KJ3aE"/>
+</div>
+<div class="opacity-60">
+<p class="font-bold text-on-surface line-through">Lemon Sage Pure</p>
+<p class="text-xs text-on-surface-variant/60">SKU: KOM-LSP-03</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<p class="font-bold text-on-surface-variant/40">Rp 42.000</p>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="p-2 hover:bg-surface-container rounded-lg text-on-surface-variant transition-all">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error-container/20 rounded-lg text-error transition-all">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+</div>
+</div>
+<!-- Artisan Footer -->
+<footer class="px-gutter py-8 border-t border-outline-variant/10 mt-12 flex flex-col md:flex-row justify-between items-center text-on-surface-variant/60 text-[11px] font-bold uppercase tracking-widest bg-surface-container-low/20">
+<div class="">© 2024 Kombucha Co. Artisan Fermentation.</div>
+<div class="flex gap-6 mt-4 md:mt-0">
+<a class="hover:text-primary" href="#">Kelola Produk</a>
+<a class="hover:text-primary" href="#">Kelola Konten</a>
+</div>
+</footer>
+</main>
+</div>
+<!-- Floating Action for Mobile -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 rounded-full bg-primary text-on-primary shadow-2xl flex items-center justify-center z-50 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<script>
+        // Simple micro-interaction for rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.cursor = 'pointer';
+            });
+        });
+
+        // Search highlight mock logic
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+        });
+    </script>
+</body></html>
