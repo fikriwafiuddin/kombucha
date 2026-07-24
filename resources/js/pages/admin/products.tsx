@@ -140,30 +140,38 @@ export default function AdminProducts() {
         <>
             <Head title="Kelola Produk" />
 
-            {/* Top App Bar */}
-            <header className="sticky top-0 z-40 flex items-center justify-between border-b border-outline-variant/10 bg-surface/80 px-6 py-4 backdrop-blur-md md:px-8">
-                <div className="flex items-center gap-4">
-                    <button className="p-2 text-on-surface md:hidden">
-                        <span className="material-symbols-outlined">menu</span>
-                    </button>
-                    <h2 className="text-2xl font-semibold">Kelola Produk</h2>
-                </div>
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={openCreate}
-                        className="hidden items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold tracking-wide text-on-primary shadow-lg shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95 md:flex"
-                    >
-                        <span className="material-symbols-outlined text-base">
-                            add
-                        </span>
-                        Tambah Produk Baru
-                    </button>
+            <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
+                <div className="flex min-w-0 items-center gap-4">
+                    <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
+                        Manajemen Produk
+                    </h2>
                 </div>
             </header>
 
             <div className="space-y-8 p-6 md:space-y-12 md:p-8">
-                {/* Data Table */}
-                <div className="overflow-hidden rounded-4xl border border-outline-variant/10 bg-surface-container-lowest shadow-[0_4px_20px_-2px_rgba(27,43,30,0.05)]">
+                <section id="products" className="scroll-mt-24 space-y-6">
+                    <div className="flex items-center justify-between gap-4">
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-container text-on-primary-container shadow-sm">
+                                <span className="material-symbols-outlined">
+                                    inventory_2
+                                </span>
+                            </div>
+                            <h3 className="text-2xl font-semibold">Produk</h3>
+                        </div>
+                        <button
+                            onClick={openCreate}
+                            className="flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold tracking-wide text-on-primary shadow-sm transition-all hover:scale-[1.02] active:scale-95"
+                        >
+                            <span className="material-symbols-outlined text-[18px]">
+                                add
+                            </span>
+                            Tambah Produk
+                        </button>
+                    </div>
+
+                    {/* Data Table */}
+                    <div className="overflow-hidden rounded-4xl border border-outline-variant/10 bg-surface-container-lowest shadow-[0_4px_20px_-2px_rgba(27,43,30,0.05)]">
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse text-left">
                             <thead>
@@ -262,7 +270,7 @@ export default function AdminProducts() {
                                         >
                                             Belum ada produk. Klik{' '}
                                             <span className="font-semibold">
-                                                Tambah Produk Baru
+                                                Tambah Produk
                                             </span>{' '}
                                             untuk membuat produk pertama.
                                         </td>
@@ -272,6 +280,7 @@ export default function AdminProducts() {
                         </table>
                     </div>
                 </div>
+                </section>
             </div>
 
             {/* Create / Edit dialog */}
@@ -324,14 +333,6 @@ export default function AdminProducts() {
                     </Form>
                 </DialogContent>
             </Dialog>
-
-            {/* Floating action for mobile */}
-            <button
-                onClick={openCreate}
-                className="fixed right-6 bottom-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-on-primary shadow-2xl transition-transform active:scale-95 md:hidden"
-            >
-                <span className="material-symbols-outlined">add</span>
-            </button>
         </>
     );
 }

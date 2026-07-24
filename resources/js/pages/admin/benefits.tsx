@@ -102,7 +102,7 @@ export default function AdminBenefits() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                                     {[1, 2, 3].map((n) => (
                                         <div
                                             key={n}
