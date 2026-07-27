@@ -20,12 +20,12 @@ export default function AdminContactSettings() {
 
     return (
         <>
-            <Head title="Kelola Contact & Settings" />
+            <Head title="Kelola Kontak & Pengaturan" />
 
             <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
-                        Manajemen Contact Info & Settings
+                        Manajemen Info Kontak & Pengaturan
                     </h2>
                 </div>
             </header>
@@ -40,7 +40,7 @@ export default function AdminContactSettings() {
                         </div>
                         <div>
                             <h3 className="text-2xl font-semibold">
-                                Contact Info &amp; Settings
+                                Info Kontak &amp; Pengaturan
                             </h3>
                             <p className="text-xs text-on-surface-variant">
                                 Informasi operasional dan kontak WhatsApp

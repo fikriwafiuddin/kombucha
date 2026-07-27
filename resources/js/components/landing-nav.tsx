@@ -23,7 +23,7 @@ const NAV_ITEMS: NavItem[] = [
     { label: 'Tentang', anchor: '#about' },
     { label: 'Manfaat', anchor: '#benefits' },
     { label: 'Produk', anchor: '#products' },
-    { label: 'FAQ', anchor: '#faq' },
+    { label: 'Pertanyaan', anchor: '#faq' },
     { label: 'Kontak', anchor: '#contact' },
 ];
 

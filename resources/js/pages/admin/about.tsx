@@ -6,7 +6,8 @@ import { IconReferenceLink } from '@/components/icon-reference-link';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { about as adminAbout } from '@/routes/admin';
-import { assetUrl, type SiteContent } from '@/types';
+import { assetUrl } from '@/types';
+import type { SiteContent } from '@/types';
 
 type PageProps = {
     siteContent: SiteContent;
@@ -84,6 +85,7 @@ export default function AdminAbout() {
 
     const handleImage1Change = (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
+
         if (file) {
             setImage1Preview(URL.createObjectURL(file));
         }
@@ -91,6 +93,7 @@ export default function AdminAbout() {
 
     const handleImage2Change = (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
+
         if (file) {
             setImage2Preview(URL.createObjectURL(file));
         }
@@ -98,12 +101,12 @@ export default function AdminAbout() {
 
     return (
         <>
-            <Head title="Kelola About Section" />
+            <Head title="Kelola Tentang" />
 
             <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
-                        Manajemen About Section
+                        Manajemen Tentang
                     </h2>
                 </div>
             </header>
@@ -117,12 +120,10 @@ export default function AdminAbout() {
                             </span>
                         </div>
                         <div>
-                            <h3 className="text-2xl font-semibold">
-                                About Section
-                            </h3>
+                            <h3 className="text-2xl font-semibold">Tentang</h3>
                             <p className="text-xs text-on-surface-variant">
-                                Konten teks dan gambar pada section &quot;Apa
-                                itu Kombucha?&quot;
+                                Konten teks dan gambar pada bagian &quot;Apa itu
+                                Kombucha?&quot;
                             </p>
                         </div>
                     </div>
@@ -152,7 +153,9 @@ export default function AdminAbout() {
                                             }
                                             placeholder="Filosofi"
                                         />
-                                        <InputError message={errors.about_tag} />
+                                        <InputError
+                                            message={errors.about_tag}
+                                        />
                                     </div>
                                     <div className="space-y-2">
                                         <label
@@ -296,7 +299,7 @@ export default function AdminAbout() {
                                 <div className="space-y-6">
                                     <ImageDropzone
                                         id="about_image_1"
-                                        label="Gambar About 1"
+                                        label="Gambar Tentang 1"
                                         preview={image1Preview}
                                         onChange={handleImage1Change}
                                         error={errors.about_image_1}
@@ -304,7 +307,7 @@ export default function AdminAbout() {
                                     />
                                     <ImageDropzone
                                         id="about_image_2"
-                                        label="Gambar About 2"
+                                        label="Gambar Tentang 2"
                                         preview={image2Preview}
                                         onChange={handleImage2Change}
                                         error={errors.about_image_2}

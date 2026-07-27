@@ -21,12 +21,12 @@ export default function AdminBenefits() {
 
     return (
         <>
-            <Head title="Kelola Benefits Section" />
+            <Head title="Kelola Manfaat" />
 
             <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
-                        Manajemen Benefits Section
+                        Manajemen Manfaat
                     </h2>
                 </div>
             </header>
@@ -40,9 +40,7 @@ export default function AdminBenefits() {
                             </span>
                         </div>
                         <div>
-                            <h3 className="text-2xl font-semibold">
-                                Benefits Section
-                            </h3>
+                            <h3 className="text-2xl font-semibold">Manfaat</h3>
                             <p className="text-xs text-on-surface-variant">
                                 Konten teks pada section &quot;Kebaikan di
                                 Setiap Tetes&quot;
@@ -63,7 +61,7 @@ export default function AdminBenefits() {
                                             className={labelClasses}
                                             htmlFor="benefits_title"
                                         >
-                                            Judul Section
+                                            Judul
                                         </label>
                                         <input
                                             id="benefits_title"
@@ -84,7 +82,7 @@ export default function AdminBenefits() {
                                             className={labelClasses}
                                             htmlFor="benefits_description"
                                         >
-                                            Deskripsi Section
+                                            Deskripsi
                                         </label>
                                         <textarea
                                             id="benefits_description"
@@ -97,7 +95,9 @@ export default function AdminBenefits() {
                                             }
                                         />
                                         <InputError
-                                            message={errors.benefits_description}
+                                            message={
+                                                errors.benefits_description
+                                            }
                                         />
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@ export default function AdminBenefits() {
                                             className="space-y-4 rounded-2xl border border-outline-variant/40 p-4"
                                         >
                                             <p className="text-xs font-bold tracking-widest text-on-surface-variant uppercase">
-                                                Benefit Card {n}
+                                                Manfaat {n}
                                             </p>
                                             <div className="space-y-2">
                                                 <div className="flex items-center justify-between gap-2">

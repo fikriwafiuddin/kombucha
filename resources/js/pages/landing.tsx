@@ -504,12 +504,20 @@ export default function Landing({
                                         {siteContent.email}
                                     </span>
                                 </div>
-                                <div className="flex items-center gap-4">
+                                {/* <div className="flex items-center gap-4">
                                     <span className="material-symbols-outlined rounded-full bg-primary-fixed p-3 text-primary">
                                         share
                                     </span>
                                     <span className="text-on-surface">
                                         {siteContent.instagram}
+                                    </span>
+                                </div> */}
+                                <div className="flex items-center gap-4">
+                                    <span className="material-symbols-outlined rounded-full bg-primary-fixed p-3 text-primary">
+                                        schedule
+                                    </span>
+                                    <span className="text-on-surface">
+                                        {siteContent.operating_hours}
                                     </span>
                                 </div>
                             </div>

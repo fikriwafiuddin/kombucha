@@ -35,12 +35,12 @@ export default function AdminHero() {
 
     return (
         <>
-            <Head title="Kelola Hero Banner" />
+            <Head title="Kelola Hero Baner" />
 
             <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
-                        Manajemen Hero Banner
+                        Manajemen Hero Baner
                     </h2>
                 </div>
             </header>
@@ -55,7 +55,7 @@ export default function AdminHero() {
                         </div>
                         <div>
                             <h3 className="text-2xl font-semibold">
-                                Hero Banner
+                                Hero Baner
                             </h3>
                             <p className="text-xs text-on-surface-variant">
                                 Update section utama yang dilihat pengunjung

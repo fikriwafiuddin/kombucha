@@ -105,7 +105,7 @@ export default function AdminFaqs() {
             <header className="sticky top-0 z-10 flex h-20 items-center justify-between gap-4 border-outline-variant/30 bg-surface/80 px-6 backdrop-blur-md md:px-8">
                 <div className="flex min-w-0 items-center gap-4">
                     <h2 className="truncate text-lg font-semibold text-on-surface sm:text-2xl">
-                        Manajemen FAQ List
+                        Manajemen Tanya Jawab
                     </h2>
                 </div>
             </header>
@@ -119,7 +119,9 @@ export default function AdminFaqs() {
                                     quiz
                                 </span>
                             </div>
-                            <h3 className="text-2xl font-semibold">FAQ List</h3>
+                            <h3 className="text-2xl font-semibold">
+                                Tanya Jawab
+                            </h3>
                         </div>
                         <button
                             onClick={() =>
@@ -130,7 +132,7 @@ export default function AdminFaqs() {
                             <span className="material-symbols-outlined text-[18px]">
                                 add
                             </span>
-                            Tambah FAQ
+                            Tambah
                         </button>
                     </div>
                     <div className="space-y-3">
