@@ -1,5 +1,6 @@
 import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
+import type { MouseEvent } from 'react';
 import {
     Sheet,
     SheetClose,
@@ -9,7 +10,7 @@ import {
     SheetTrigger,
 } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
-import { landing, login } from '@/routes';
+import { landing } from '@/routes';
 import { products as adminProducts } from '@/routes/admin';
 
 type NavItem = {
@@ -31,6 +32,7 @@ export function LandingNav() {
     const { auth } = usePage().props;
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState<string | null>(null);
     const isAdmin = auth.user !== null;
 
     useEffect(() => {
@@ -40,6 +42,52 @@ export function LandingNav() {
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Scroll-spy: highlight the nav item whose section is in view.
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(`#${entry.target.id}`);
+                    }
+                });
+            },
+            { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
+        );
+
+        NAV_ITEMS.forEach((item) => {
+            const target = document.querySelector(item.anchor);
+
+            if (target) {
+                observer.observe(target);
+            }
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Smooth-scroll to the target section, offset for the fixed navbar.
+    // `delay` lets the mobile sheet finish closing before scrolling, since
+    // Radix Dialog locks body scroll while open.
+    const handleNavClick = (
+        event: MouseEvent<HTMLAnchorElement>,
+        anchor: string,
+        delay = 0,
+    ) => {
+        event.preventDefault();
+        const target = document.querySelector(anchor);
+
+        if (!target) {
+            return;
+        }
+
+        const top = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.setTimeout(
+            () => window.scrollTo({ top, behavior: 'smooth' }),
+            delay,
+        );
+    };
 
     return (
         <nav
@@ -62,27 +110,28 @@ export function LandingNav() {
                         <a
                             key={item.label}
                             href={item.anchor}
-                            className="text-sm font-semibold text-on-surface-variant transition-colors duration-300 hover:text-primary"
+                            onClick={(event) =>
+                                handleNavClick(event, item.anchor)
+                            }
+                            className={cn(
+                                'text-sm font-semibold transition-colors duration-300 hover:text-primary',
+                                activeSection === item.anchor
+                                    ? 'text-primary'
+                                    : 'text-on-surface-variant',
+                            )}
                         >
                             {item.label}
                         </a>
                     ))}
                 </div>
 
-                <div className="flex items-center gap-2">
-                    {isAdmin ? (
+                <div className="flex items-center gap-2 md:hidden">
+                    {isAdmin && (
                         <Link
                             href={adminProducts()}
                             className="hidden rounded-full bg-primary px-6 py-2 text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95 md:block"
                         >
                             Dashboard
-                        </Link>
-                    ) : (
-                        <Link
-                            href={login()}
-                            className="hidden rounded-full bg-primary px-6 py-2 text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95 md:block"
-                        >
-                            Login
                         </Link>
                     )}
 
@@ -116,29 +165,34 @@ export function LandingNav() {
                                     <SheetClose asChild key={item.label}>
                                         <a
                                             href={item.anchor}
-                                            className="rounded-full px-5 py-3 text-base font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-high hover:text-primary"
+                                            onClick={(event) =>
+                                                handleNavClick(
+                                                    event,
+                                                    item.anchor,
+                                                    300,
+                                                )
+                                            }
+                                            className={cn(
+                                                'rounded-full px-5 py-3 text-base font-semibold transition-colors hover:bg-surface-container-high hover:text-primary',
+                                                activeSection === item.anchor
+                                                    ? 'text-primary'
+                                                    : 'text-on-surface-variant',
+                                            )}
                                         >
                                             {item.label}
                                         </a>
                                     </SheetClose>
                                 ))}
-                                <SheetClose asChild>
-                                    {isAdmin ? (
+                                {isAdmin && (
+                                    <SheetClose asChild>
                                         <Link
                                             href={adminProducts()}
                                             className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95"
                                         >
                                             Dashboard
                                         </Link>
-                                    ) : (
-                                        <Link
-                                            href={login()}
-                                            className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-on-primary shadow-md transition-all hover:bg-primary-container active:scale-95"
-                                        >
-                                            Login
-                                        </Link>
-                                    )}
-                                </SheetClose>
+                                    </SheetClose>
+                                )}
                             </div>
                         </SheetContent>
                     </Sheet>

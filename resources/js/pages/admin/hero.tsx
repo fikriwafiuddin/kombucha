@@ -113,49 +113,25 @@ export default function AdminHero() {
                                             message={errors.hero_subheadline}
                                         />
                                     </div>
-                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                        <div className="space-y-2">
-                                            <label
-                                                className={labelClasses}
-                                                htmlFor="hero_cta_text"
-                                            >
-                                                Teks Tombol (CTA)
-                                            </label>
-                                            <input
-                                                id="hero_cta_text"
-                                                className={inputClasses}
-                                                type="text"
-                                                name="hero_cta_text"
-                                                defaultValue={
-                                                    siteContent.hero_cta_text ??
-                                                    ''
-                                                }
-                                            />
-                                            <InputError
-                                                message={errors.hero_cta_text}
-                                            />
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label
-                                                className={labelClasses}
-                                                htmlFor="hero_cta_link"
-                                            >
-                                                Link Tombol (WA/Catalog)
-                                            </label>
-                                            <input
-                                                id="hero_cta_link"
-                                                className={inputClasses}
-                                                type="url"
-                                                name="hero_cta_link"
-                                                defaultValue={
-                                                    siteContent.hero_cta_link ??
-                                                    ''
-                                                }
-                                            />
-                                            <InputError
-                                                message={errors.hero_cta_link}
-                                            />
-                                        </div>
+                                    <div className="space-y-2">
+                                        <label
+                                            className={labelClasses}
+                                            htmlFor="hero_cta_text"
+                                        >
+                                            Teks Tombol (CTA)
+                                        </label>
+                                        <input
+                                            id="hero_cta_text"
+                                            className={inputClasses}
+                                            type="text"
+                                            name="hero_cta_text"
+                                            defaultValue={
+                                                siteContent.hero_cta_text ?? ''
+                                            }
+                                        />
+                                        <InputError
+                                            message={errors.hero_cta_text}
+                                        />
                                     </div>
                                 </div>
 

@@ -1,13 +1,15 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { LandingNav } from '@/components/landing-nav';
+import { login } from '@/routes';
 import { assetUrl } from '@/types';
 import type { SiteContent } from '@/types';
+import { formatCurrency } from '@/utils/fomatter';
 
 type Product = {
     id: number;
     name: string;
-    price: string;
+    price: number;
     description: string;
     image: string;
 };
@@ -17,6 +19,10 @@ const ABOUT_IMAGE_1_FALLBACK =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuA0KOIEWKWqkCY9kutozxMKxhnesX_OhQ7NHBYETonzCiUCXZFcCgaFJhptaMD7302vaeeQ9IL9RLYTwQDfNSIhSWPp_VjP-Z2K-l9InaaAfgtGAjR435XgH14yhaj_IXkhv0DtvmiM2TQC7_vuI92e5kmfvNXpexc8nVpDdg2xem18WEfEc4W9dp99acI6ytDDvkNgzrjGxbSylQG3oqGmQBD2oGiR22dU-F3-M4Rg5OfdwneNqJ7jgZqbqZ2Gnul2HGX0jSYY-BY';
 const ABOUT_IMAGE_2_FALLBACK =
     'https://lh3.googleusercontent.com/aida-public/AB6AXuCzH8HL2I8U2TfMTF8djTyPsTVa3hZVpQR3vilc1BsagCGeKfjl82uZMpj9TMATXq1jIfQM1LRdUriCrpSH-t7BA6R219XuCh-6jjNcYbux7_HcirCR04iRIf53KYoOhkkse3VvmPDwBHFuGMU6to3wD-fUIXmiaFsBRMaiYVbgCFNs3IWMPQ4F_QkFsvKdBRi3ydbXf-eWC3watksKOPETbNUZOQRH_FVSfr_iOx09G3tH-JVMDA5BE-Lfboqa84YZqv-hBl7cuOA';
+
+// Fallback map location shown until an admin sets the workshop address.
+const DEFAULT_MAP_QUERY =
+    'Jl. Wijaya Kusuma No.32, Joho, Sumberejo, Kec. Ngasem, Kabupaten Kediri, Jawa Timur 64182';
 
 interface LandingProps {
     siteContent: SiteContent;
@@ -53,6 +59,7 @@ export default function Landing({
         assetUrl(siteContent.about_image_1) ?? ABOUT_IMAGE_1_FALLBACK;
     const aboutImage2 =
         assetUrl(siteContent.about_image_2) ?? ABOUT_IMAGE_2_FALLBACK;
+    const mapQuery = siteContent.address ?? DEFAULT_MAP_QUERY;
 
     useEffect(() => {
         // Scroll Animation Observer
@@ -119,16 +126,16 @@ export default function Landing({
                             <div className="flex flex-col gap-4 sm:flex-row">
                                 <a
                                     className="rounded-full bg-primary px-8 py-4 text-center text-sm font-semibold text-on-primary shadow-lg transition-all hover:bg-primary-container active:scale-95"
-                                    href={`https://wa.me/${siteContent.hero_cta_link}`}
+                                    href={`https://wa.me/${siteContent.whatsapp}`}
                                 >
                                     Pesan via WhatsApp
                                 </a>
-                                <a
+                                {/* <a
                                     className="rounded-full border-2 border-secondary px-8 py-4 text-center text-sm font-semibold text-secondary transition-all hover:bg-secondary hover:text-on-secondary active:scale-95"
                                     href="#products"
                                 >
                                     {siteContent.hero_cta_text}
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                         <div className="group relative">
@@ -297,7 +304,7 @@ export default function Landing({
                                             {product.description}
                                         </p>
                                         <span className="font-bold text-primary">
-                                            {product.price}
+                                            {formatCurrency(product.price)}
                                         </span>
                                     </div>
                                 </div>
@@ -372,15 +379,13 @@ export default function Landing({
                 {/* Behind the Scenes Gallery */}
                 <section className="translate-y-0 overflow-hidden bg-inverse-surface py-36 text-background opacity-100 transition-all duration-1000">
                     <div className="mx-auto mb-12 max-w-[1280px] px-[24px]">
-                        <h2 className="mb-4 text-5xl font-bold">
-                            Proses Pembuatan
-                        </h2>
+                        <h2 className="mb-4 text-5xl font-bold">Galeri</h2>
                         <p className="text-surface-variant">
-                            Melihat lebih dekat bagaimana kami menciptakan
-                            setiap botol kebaikan.
+                            Potret momen, proses pembuatan, dan keindahan di
+                            balik setiap botol kombucha kami.
                         </p>
                     </div>
-                    <div className="no-scrollbar flex snap-x gap-4 overflow-x-auto px-[24px] pb-8">
+                    <div className="no-scrollbar mx-auto flex max-w-[1280px] snap-x gap-4 overflow-x-auto px-[24px] pb-8">
                         {galleryImages.map((galleryImage) => (
                             <div
                                 key={galleryImage.id}
@@ -522,21 +527,22 @@ export default function Landing({
                                 </div>
                             </div>
                         </div>
-                        <div className="space-y-8">
+                        <div className="space-y-2">
                             <div className="relative h-full min-h-100 overflow-hidden rounded-3xl shadow-2xl">
-                                <div className="pointer-events-none absolute inset-0 bg-secondary/10"></div>
-                                <div className="flex h-full w-full items-center justify-center bg-surface-container text-secondary">
-                                    <div className="p-8 text-center">
-                                        <span className="material-symbols-outlined mb-4 text-6xl">
-                                            location_on
-                                        </span>
-                                        <p className="text-xl">Workshop Kami</p>
-                                        <p className="text-sm opacity-70">
-                                            {siteContent.address}
-                                        </p>
-                                    </div>
-                                </div>
+                                <iframe
+                                    title="Lokasi Workshop Kombucha Co."
+                                    src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed&z=15`}
+                                    className="h-full min-h-100 w-full border-0"
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    allowFullScreen
+                                />
                             </div>
+                            {siteContent.address && (
+                                <p className="text-center text-sm text-on-surface-variant">
+                                    {siteContent.address}
+                                </p>
+                            )}
                         </div>
                     </div>
                 </section>
@@ -554,26 +560,15 @@ export default function Landing({
                                 dengan kemasan ramah lingkungan.
                             </p>
                         </div>
-                        <div className="space-y-4">
-                            <h4 className="font-bold text-primary">
-                                Legalitas
-                            </h4>
-                            <ul className="space-y-2 text-on-surface-variant">
-                                <li>
-                                    <a className="hover:text-primary" href="#">
-                                        Kebijakan Privasi
-                                    </a>
-                                </li>
-                                <li>
-                                    <a className="hover:text-primary" href="#">
-                                        Syarat & Ketentuan
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                     <div className="mx-auto mt-4 flex max-w-[1280px] flex-col justify-between border-t border-surface-variant px-[24px] pt-8 text-xs text-on-surface-variant md:flex-row">
-                        <p>© 2024 Kombucha Co. Artisan Fermentation.</p>
+                        <Link
+                            href={login()}
+                            className="transition-colors hover:text-primary"
+                            aria-label="Admin login"
+                        >
+                            © 2024 Kombucha Co. Artisan Fermentation.
+                        </Link>
                         <div className="mt-4 flex gap-4 md:mt-0">
                             <a
                                 className="transition-colors hover:text-primary"

@@ -3,14 +3,27 @@
 namespace Tests\Feature\Admin;
 
 use App\Models\SiteContent;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
 class SiteContentTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * Admin content routes are guarded by the auth middleware, so every test in
+     * this class authenticates a user before interacting with them.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
 
     public function test_content_page_renders_on_first_run_without_singleton_row(): void
     {
@@ -19,7 +32,7 @@ class SiteContentTest extends TestCase
         $response = $this->get(route('admin.hero'));
 
         $response->assertOk();
-        $response->assertInertia(fn (\Inertia\Testing\AssertableInertia $page) => $page
+        $response->assertInertia(fn (AssertableInertia $page) => $page
             ->has('siteContent')
             ->where('siteContent.id', 1));
     }
@@ -61,15 +74,6 @@ class SiteContentTest extends TestCase
             'instagram' => '@second',
         ]);
         $this->assertDatabaseCount('site_contents', 1);
-    }
-
-    public function test_update_validates_hero_cta_link_as_url(): void
-    {
-        $response = $this->patch(route('admin.content.settings.update'), [
-            'hero_cta_link' => 'also-not-a-url',
-        ]);
-
-        $response->assertSessionHasErrors(['hero_cta_link']);
     }
 
     public function test_update_rejects_non_image_hero_image(): void

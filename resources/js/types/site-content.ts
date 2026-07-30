@@ -4,7 +4,6 @@ export type SiteContent = {
     hero_headline: string | null;
     hero_subheadline: string | null;
     hero_cta_text: string | null;
-    hero_cta_link: string | null;
     hero_image: string | null;
     // About
     about_tag: string | null;

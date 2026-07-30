@@ -24,7 +24,6 @@ class UpdateSiteContentRequest extends FormRequest
             'hero_headline' => ['nullable', 'string', 'max:255'],
             'hero_subheadline' => ['nullable', 'string'],
             'hero_cta_text' => ['nullable', 'string', 'max:120'],
-            'hero_cta_link' => ['nullable', 'url', 'max:1000'],
             'hero_image' => ['nullable', 'image', 'mimes:jpeg,jpg,png,webp', 'max:2048'],
             'about_tag' => ['nullable', 'string', 'max:255'],
             'about_title' => ['nullable', 'string', 'max:255'],

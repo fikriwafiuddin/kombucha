@@ -13,7 +13,6 @@ use Illuminate\Support\Carbon;
  * @property string|null $hero_headline
  * @property string|null $hero_subheadline
  * @property string|null $hero_cta_text
- * @property string|null $hero_cta_link
  * @property string|null $hero_image
  * @property string|null $about_tag
  * @property string|null $about_title
@@ -49,7 +48,6 @@ use Illuminate\Support\Carbon;
     'hero_headline',
     'hero_subheadline',
     'hero_cta_text',
-    'hero_cta_link',
     'hero_image',
     'about_tag',
     'about_title',
@@ -103,7 +101,6 @@ class SiteContent extends Model
             'hero_headline' => null,
             'hero_subheadline' => null,
             'hero_cta_text' => null,
-            'hero_cta_link' => null,
             'hero_image' => null,
             'about_tag' => 'Filosofi',
             'about_title' => 'Apa itu Kombucha?',

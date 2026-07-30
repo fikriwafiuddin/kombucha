@@ -18,16 +18,15 @@ class SiteContentSeeder extends Seeder
         $siteContent->id = 1;
 
         $siteContent->fill([
-                'hero_headline' => 'Hidup Sehat Mulai Dari Gut Health Anda',
-                'hero_subheadline' => 'Kombucha artisan berkualitas tinggi yang difermentasi dengan cinta dan bahan alam terbaik untuk keseimbangan tubuh Anda setiap harinya.',
-                'hero_cta_text' => 'Pesan Sekarang',
-                'hero_cta_link' => 'https://wa.me/628123456789',
-                'hero_image' => 'hero/P6WLSR8dy4QKFjAk2KK39qYn6ZXL5Bzus1lIj9ee.jpg',
-                'whatsapp' => '812-3456-7890',
-                'operating_hours' => 'Senin - Sabtu (08:00 - 18:00)',
-                'instagram' => '@kombucha.co.id',
-                'address' => 'Jl. Kemang Timur No. 42, Jakarta Selatan, DKI Jakarta 12730',
-            ],
+            'hero_headline' => 'Hidup Sehat Mulai Dari Gut Health Anda',
+            'hero_subheadline' => 'Kombucha artisan berkualitas tinggi yang difermentasi dengan cinta dan bahan alam terbaik untuk keseimbangan tubuh Anda setiap harinya.',
+            'hero_cta_text' => 'Pesan Sekarang',
+            'hero_image' => 'hero/P6WLSR8dy4QKFjAk2KK39qYn6ZXL5Bzus1lIj9ee.jpg',
+            'whatsapp' => '812-3456-7890',
+            'operating_hours' => 'Senin - Sabtu (08:00 - 18:00)',
+            'instagram' => '@kombucha.co.id',
+            'address' => 'Jl. Kemang Timur No. 42, Jakarta Selatan, DKI Jakarta 12730',
+        ],
         )->save();
     }
 }
