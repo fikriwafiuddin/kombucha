@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\Settings;
 
+use App\Concerns\HasIndonesianMessages;
 use App\Concerns\ProfileValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileUpdateRequest extends FormRequest
 {
+    use HasIndonesianMessages;
     use ProfileValidationRules;
 
     /**
@@ -18,5 +20,16 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return $this->profileRules($this->user()->id);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nama',
+            'email' => 'email',
+        ];
     }
 }

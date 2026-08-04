@@ -20,7 +20,6 @@ class SiteContentFactory extends Factory
         return [
             'hero_headline' => $this->faker->sentence(4),
             'hero_subheadline' => $this->faker->sentence(12),
-            'hero_cta_text' => 'Pesan Sekarang',
             'hero_image' => $this->faker->optional()->imageUrl(1920, 1080),
             'whatsapp' => $this->faker->numerify('8##-####-####'),
             'operating_hours' => 'Senin - Sabtu (08:00 - 18:00)',

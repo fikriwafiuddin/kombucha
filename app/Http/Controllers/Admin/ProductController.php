@@ -30,6 +30,24 @@ class ProductController extends Controller
     }
 
     /**
+     * Render the form page for creating a new product.
+     */
+    public function create(): Response
+    {
+        return Inertia::render('admin/products/create');
+    }
+
+    /**
+     * Render the form page for editing the given product.
+     */
+    public function edit(Product $product): Response
+    {
+        return Inertia::render('admin/products/edit', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
      * Store a newly created product.
      */
     public function store(StoreProductRequest $request): RedirectResponse

@@ -5,6 +5,8 @@ import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteCont
 import { IconReferenceLink } from '@/components/icon-reference-link';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { about as adminAbout } from '@/routes/admin';
 import { assetUrl } from '@/types';
 import type { SiteContent } from '@/types';
@@ -14,7 +16,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -143,7 +145,7 @@ export default function AdminAbout() {
                                         >
                                             Label Tag
                                         </label>
-                                        <input
+                                        <Input
                                             id="about_tag"
                                             className={inputClasses}
                                             type="text"
@@ -164,7 +166,7 @@ export default function AdminAbout() {
                                         >
                                             Judul Section
                                         </label>
-                                        <input
+                                        <Input
                                             id="about_title"
                                             className={inputClasses}
                                             type="text"
@@ -185,7 +187,7 @@ export default function AdminAbout() {
                                         >
                                             Deskripsi
                                         </label>
-                                        <textarea
+                                        <Textarea
                                             id="about_description"
                                             className={inputClasses}
                                             rows={4}
@@ -218,7 +220,7 @@ export default function AdminAbout() {
                                                     </label>
                                                     <IconReferenceLink />
                                                 </div>
-                                                <input
+                                                <Input
                                                     id={`about_feature_${n}_icon`}
                                                     className={inputClasses}
                                                     type="text"
@@ -245,7 +247,7 @@ export default function AdminAbout() {
                                                 >
                                                     Judul Fitur
                                                 </label>
-                                                <input
+                                                <Input
                                                     id={`about_feature_${n}_title`}
                                                     className={inputClasses}
                                                     type="text"
@@ -272,7 +274,7 @@ export default function AdminAbout() {
                                                 >
                                                     Deskripsi Fitur
                                                 </label>
-                                                <input
+                                                <Input
                                                     id={`about_feature_${n}_description`}
                                                     className={inputClasses}
                                                     type="text"

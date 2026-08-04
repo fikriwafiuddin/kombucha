@@ -2,6 +2,8 @@ import { Form, Head, usePage } from '@inertiajs/react';
 import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteContentController';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { contactSettings as adminContactSettings } from '@/routes/admin';
 import type { SiteContent } from '@/types';
 
@@ -10,7 +12,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -66,7 +68,7 @@ export default function AdminContactSettings() {
                                             <span className="absolute top-1/2 left-4 -translate-y-1/2 text-on-surface-variant">
                                                 +62
                                             </span>
-                                            <input
+                                            <Input
                                                 id="whatsapp"
                                                 className={`${inputClasses} pl-12`}
                                                 type="text"
@@ -85,7 +87,7 @@ export default function AdminContactSettings() {
                                         >
                                             Jam Operasional
                                         </label>
-                                        <input
+                                        <Input
                                             id="operating_hours"
                                             className={inputClasses}
                                             type="text"
@@ -106,7 +108,7 @@ export default function AdminContactSettings() {
                                         >
                                             Instagram @Handle
                                         </label>
-                                        <input
+                                        <Input
                                             id="instagram"
                                             className={inputClasses}
                                             type="text"
@@ -126,7 +128,7 @@ export default function AdminContactSettings() {
                                         >
                                             Email
                                         </label>
-                                        <input
+                                        <Input
                                             id="email"
                                             className={inputClasses}
                                             type="email"
@@ -145,7 +147,7 @@ export default function AdminContactSettings() {
                                         >
                                             Alamat Fermentation Studio
                                         </label>
-                                        <textarea
+                                        <Textarea
                                             id="address"
                                             className={inputClasses}
                                             rows={2}

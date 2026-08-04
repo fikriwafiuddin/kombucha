@@ -4,6 +4,8 @@ import { useState } from 'react';
 import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteContentController';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { hero as adminHero } from '@/routes/admin';
 import type { SiteContent } from '@/types';
 import { assetUrl } from '@/types';
@@ -13,7 +15,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -79,7 +81,7 @@ export default function AdminHero() {
                                         >
                                             Judul Utama (Headline)
                                         </label>
-                                        <input
+                                        <Input
                                             id="hero_headline"
                                             className={`${inputClasses} text-lg text-primary`}
                                             type="text"
@@ -99,7 +101,7 @@ export default function AdminHero() {
                                         >
                                             Sub-headline (Deskripsi)
                                         </label>
-                                        <textarea
+                                        <Textarea
                                             id="hero_subheadline"
                                             className={inputClasses}
                                             rows={4}
@@ -111,26 +113,6 @@ export default function AdminHero() {
                                         />
                                         <InputError
                                             message={errors.hero_subheadline}
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label
-                                            className={labelClasses}
-                                            htmlFor="hero_cta_text"
-                                        >
-                                            Teks Tombol (CTA)
-                                        </label>
-                                        <input
-                                            id="hero_cta_text"
-                                            className={inputClasses}
-                                            type="text"
-                                            name="hero_cta_text"
-                                            defaultValue={
-                                                siteContent.hero_cta_text ?? ''
-                                            }
-                                        />
-                                        <InputError
-                                            message={errors.hero_cta_text}
                                         />
                                     </div>
                                 </div>

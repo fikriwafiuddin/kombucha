@@ -2,11 +2,14 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Concerns\HasIndonesianMessages;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateProductRequest extends FormRequest
 {
+    use HasIndonesianMessages;
+
     /**
      * Admin content routes are intentionally public for this project.
      */
@@ -25,6 +28,19 @@ class UpdateProductRequest extends FormRequest
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['required', 'integer', 'min:0'],
             'image' => ['nullable', 'image', 'max:2048'],
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nama produk',
+            'description' => 'deskripsi produk',
+            'price' => 'harga',
+            'image' => 'foto produk',
         ];
     }
 }

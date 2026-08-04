@@ -11,6 +11,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { faqs as adminFaqs } from '@/routes/admin';
 // import type { BreadcrumbItem } from '@/types';
 
@@ -25,7 +27,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -43,7 +45,7 @@ function FaqFormFields({
                 <label className={labelClasses} htmlFor="question">
                     Pertanyaan
                 </label>
-                <input
+                <Input
                     id="question"
                     className={inputClasses}
                     type="text"
@@ -56,7 +58,7 @@ function FaqFormFields({
                 <label className={labelClasses} htmlFor="answer">
                     Jawaban
                 </label>
-                <textarea
+                <Textarea
                     id="answer"
                     className={inputClasses}
                     rows={4}

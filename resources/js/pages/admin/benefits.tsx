@@ -3,6 +3,8 @@ import SiteContentController from '@/actions/App/Http/Controllers/Admin/SiteCont
 import { IconReferenceLink } from '@/components/icon-reference-link';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { benefits as adminBenefits } from '@/routes/admin';
 import type { SiteContent } from '@/types';
 
@@ -11,7 +13,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -63,7 +65,7 @@ export default function AdminBenefits() {
                                         >
                                             Judul
                                         </label>
-                                        <input
+                                        <Input
                                             id="benefits_title"
                                             className={inputClasses}
                                             type="text"
@@ -84,7 +86,7 @@ export default function AdminBenefits() {
                                         >
                                             Deskripsi
                                         </label>
-                                        <textarea
+                                        <Textarea
                                             id="benefits_description"
                                             className={inputClasses}
                                             rows={2}
@@ -121,7 +123,7 @@ export default function AdminBenefits() {
                                                     </label>
                                                     <IconReferenceLink />
                                                 </div>
-                                                <input
+                                                <Input
                                                     id={`benefits_card_${n}_icon`}
                                                     className={inputClasses}
                                                     type="text"
@@ -148,7 +150,7 @@ export default function AdminBenefits() {
                                                 >
                                                     Judul
                                                 </label>
-                                                <input
+                                                <Input
                                                     id={`benefits_card_${n}_title`}
                                                     className={inputClasses}
                                                     type="text"
@@ -175,7 +177,7 @@ export default function AdminBenefits() {
                                                 >
                                                     Deskripsi
                                                 </label>
-                                                <textarea
+                                                <Textarea
                                                     id={`benefits_card_${n}_description`}
                                                     className={inputClasses}
                                                     rows={3}

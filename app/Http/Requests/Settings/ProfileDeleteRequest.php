@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\Settings;
 
+use App\Concerns\HasIndonesianMessages;
 use App\Concerns\PasswordValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileDeleteRequest extends FormRequest
 {
+    use HasIndonesianMessages;
     use PasswordValidationRules;
 
     /**
@@ -19,6 +21,16 @@ class ProfileDeleteRequest extends FormRequest
     {
         return [
             'password' => $this->currentPasswordRules(),
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'password' => 'kata sandi',
         ];
     }
 }

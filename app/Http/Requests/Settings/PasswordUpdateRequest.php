@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\Settings;
 
+use App\Concerns\HasIndonesianMessages;
 use App\Concerns\PasswordValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PasswordUpdateRequest extends FormRequest
 {
+    use HasIndonesianMessages;
     use PasswordValidationRules;
 
     /**
@@ -20,6 +22,17 @@ class PasswordUpdateRequest extends FormRequest
         return [
             'current_password' => $this->currentPasswordRules(),
             'password' => $this->passwordRules(),
+        ];
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    public function attributes(): array
+    {
+        return [
+            'current_password' => 'kata sandi saat ini',
+            'password' => 'kata sandi baru',
         ];
     }
 }

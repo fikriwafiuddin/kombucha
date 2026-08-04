@@ -1,7 +1,8 @@
-import { Form, Head, router, usePage } from '@inertiajs/react';
+import { Form, Head, usePage } from '@inertiajs/react';
 import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 import TestimonialController from '@/actions/App/Http/Controllers/Admin/TestimonialController';
+import { ConfirmDeleteDialog } from '@/components/confirm-delete-dialog';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import {
@@ -12,6 +13,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { testimonials as adminTestimonials } from '@/routes/admin';
 // import type { BreadcrumbItem } from '@/types';
 
@@ -30,7 +33,7 @@ type PageProps = {
 };
 
 const inputClasses =
-    'w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus:border-primary focus:ring-2 focus:ring-primary/20';
+    'h-auto w-full rounded-2xl border border-outline-variant/50 bg-surface-container-lowest px-4 py-3 text-on-surface transition-all focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20 dark:bg-surface-container-lowest';
 
 const labelClasses =
     'text-sm font-semibold tracking-wide text-on-surface-variant';
@@ -61,7 +64,7 @@ function TestimonialFormFields({
                     <label className={labelClasses} htmlFor="name">
                         Nama Pelanggan
                     </label>
-                    <input
+                    <Input
                         id="name"
                         className={inputClasses}
                         type="text"
@@ -74,7 +77,7 @@ function TestimonialFormFields({
                     <label className={labelClasses} htmlFor="role">
                         Peran
                     </label>
-                    <input
+                    <Input
                         id="role"
                         className={inputClasses}
                         type="text"
@@ -106,9 +109,11 @@ function TestimonialFormFields({
                                 src={avatarPreview}
                             />
                         ) : (
-                            <span className="material-symbols-outlined absolute inset-0 flex items-center justify-center text-[24px] text-on-surface-variant">
-                                person
-                            </span>
+                            <div className="flex h-full w-full items-center justify-center text-center text-[24px] text-on-surface-variant">
+                                <span className="material-symbols-outlined">
+                                    person
+                                </span>
+                            </div>
                         )}
                     </div>
                     <div className="text-xs text-on-surface-variant">
@@ -124,7 +129,7 @@ function TestimonialFormFields({
                 <label className={labelClasses} htmlFor="review">
                     Isi Review
                 </label>
-                <textarea
+                <Textarea
                     id="review"
                     className={inputClasses}
                     rows={3}
@@ -184,27 +189,6 @@ export default function AdminTestimonials() {
         setTestimonialDialog({ open: false, editing: null });
 
     const [deleting, setDeleting] = useState<Testimonial | null>(null);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const closeDelete = () => setDeleting(null);
-
-    const confirmDelete = () => {
-        if (!deleting || isDeleting) {
-            return;
-        }
-
-        setIsDeleting(true);
-        router.delete(
-            TestimonialController.destroy.url({ testimonial: deleting.id }),
-            {
-                preserveScroll: true,
-                onSuccess: () => {
-                    setIsDeleting(false);
-                    setDeleting(null);
-                },
-                onFinish: () => setIsDeleting(false),
-            },
-        );
-    };
 
     return (
         <>
@@ -436,43 +420,23 @@ export default function AdminTestimonials() {
                 </DialogContent>
             </Dialog>
 
-            <Dialog
-                open={deleting !== null}
-                onOpenChange={(open) => {
-                    if (!open) {
-                        closeDelete();
-                    }
-                }}
-            >
-                <DialogContent className="max-w-md">
-                    <DialogHeader>
-                        <DialogTitle>Hapus Testimonial?</DialogTitle>
-                        <DialogDescription>
-                            Yakin ingin menghapus review dari{' '}
-                            <span className="font-semibold text-on-surface">
-                                {deleting?.name}
-                            </span>
-                            ? Tindakan ini tidak dapat dibatalkan.
-                        </DialogDescription>
-                    </DialogHeader>
-                    <DialogFooter>
-                        <Button
-                            type="button"
-                            variant="ghost"
-                            onClick={closeDelete}
-                        >
-                            Batal
-                        </Button>
-                        <Button
-                            variant="destructive"
-                            onClick={confirmDelete}
-                            disabled={isDeleting}
-                        >
-                            Hapus
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+            <ConfirmDeleteDialog
+                item={deleting}
+                onClose={() => setDeleting(null)}
+                deleteUrl={(t) =>
+                    TestimonialController.destroy.url({ testimonial: t.id })
+                }
+                title="Hapus Testimonial?"
+                description={
+                    <>
+                        Yakin ingin menghapus review dari{' '}
+                        <span className="font-semibold text-on-surface">
+                            {deleting?.name}
+                        </span>
+                        ? Tindakan ini tidak dapat dibatalkan.
+                    </>
+                }
+            />
         </>
     );
 }

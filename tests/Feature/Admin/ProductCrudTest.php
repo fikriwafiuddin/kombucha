@@ -3,12 +3,59 @@
 namespace Tests\Feature\Admin;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
 class ProductCrudTest extends TestCase
 {
     use RefreshDatabase;
+
+    /**
+     * Admin content routes are guarded by the auth middleware, so every test in
+     * this class authenticates a user before interacting with them.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->actingAs(User::factory()->create());
+    }
+
+    public function test_validation_returns_indonesian_messages(): void
+    {
+        $this->post(route('admin.products.store'), [])
+            ->assertSessionHasErrors([
+                'name' => 'nama produk wajib diisi.',
+                'price' => 'harga wajib diisi.',
+            ]);
+    }
+
+    public function test_create_page_is_displayed(): void
+    {
+        $response = $this->get(route('admin.products.create'));
+
+        $response->assertOk();
+        $response->assertInertia(fn (AssertableInertia $page) => $page
+            ->component('admin/products/create'));
+    }
+
+    public function test_edit_page_is_displayed_with_product(): void
+    {
+        $product = Product::factory()->create();
+
+        $response = $this->get(route('admin.products.edit', $product));
+
+        $response->assertOk();
+        $response->assertInertia(fn (AssertableInertia $page) => $page
+            ->component('admin/products/edit')
+            ->has('product', fn (AssertableInertia $page) => $page
+                ->where('id', $product->id)
+                ->where('name', $product->name)
+                ->etc()
+            ));
+    }
 
     public function test_store_creates_a_product(): void
     {

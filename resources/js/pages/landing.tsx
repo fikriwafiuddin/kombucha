@@ -1,7 +1,8 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { LandingNav } from '@/components/landing-nav';
 import { login } from '@/routes';
+import { products as adminProducts } from '@/routes/admin';
 import { assetUrl } from '@/types';
 import type { SiteContent } from '@/types';
 import { formatCurrency } from '@/utils/fomatter';
@@ -53,6 +54,7 @@ export default function Landing({
     testimonials,
     faqs,
 }: LandingProps) {
+    const { auth } = usePage().props;
     const [showAll, setShowAll] = useState(false);
     const visibleProducts = showAll ? products : products.slice(0, 4);
     const aboutImage1 =
@@ -130,12 +132,6 @@ export default function Landing({
                                 >
                                     Pesan via WhatsApp
                                 </a>
-                                {/* <a
-                                    className="rounded-full border-2 border-secondary px-8 py-4 text-center text-sm font-semibold text-secondary transition-all hover:bg-secondary hover:text-on-secondary active:scale-95"
-                                    href="#products"
-                                >
-                                    {siteContent.hero_cta_text}
-                                </a> */}
                             </div>
                         </div>
                         <div className="group relative">
@@ -408,7 +404,10 @@ export default function Landing({
                     </h2>
                     <div className="grid gap-8 md:grid-cols-3">
                         {testimonials.map((testimonial) => (
-                            <div className="rounded-3xl border border-surface-variant bg-surface-container-low p-8 italic">
+                            <div
+                                key={testimonial.id}
+                                className="rounded-3xl border border-surface-variant bg-surface-container-low p-8 italic"
+                            >
                                 <div className="mb-4 flex text-primary">
                                     {[...Array(testimonial.rating)].map(
                                         (_, i) => (
@@ -563,9 +562,11 @@ export default function Landing({
                     </div>
                     <div className="mx-auto mt-4 flex max-w-[1280px] flex-col justify-between border-t border-surface-variant px-[24px] pt-8 text-xs text-on-surface-variant md:flex-row">
                         <Link
-                            href={login()}
+                            href={auth.user ? adminProducts() : login()}
                             className="transition-colors hover:text-primary"
-                            aria-label="Admin login"
+                            aria-label={
+                                auth.user ? 'Dasbor admin' : 'Admin login'
+                            }
                         >
                             © 2024 Kombucha Co. Artisan Fermentation.
                         </Link>
