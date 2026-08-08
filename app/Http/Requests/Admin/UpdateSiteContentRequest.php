@@ -49,7 +49,7 @@ class UpdateSiteContentRequest extends FormRequest
             'benefits_card_3_icon' => ['nullable', 'string', 'max:50'],
             'benefits_card_3_title' => ['nullable', 'string', 'max:120'],
             'benefits_card_3_description' => ['nullable', 'string'],
-            'whatsapp' => ['nullable', 'string', 'max:50'],
+            'whatsapp' => ['nullable', 'string', 'max:15'],
             'operating_hours' => ['nullable', 'string', 'max:120'],
             'instagram' => ['nullable', 'string', 'max:120'],
             'email' => ['nullable', 'string', 'email', 'max:255'],

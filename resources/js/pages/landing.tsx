@@ -1,19 +1,12 @@
-import { Head, Link, usePage } from '@inertiajs/react';
-import { useEffect, useState } from 'react';
+import { Head, Link } from '@inertiajs/react';
+import { useEffect } from 'react';
+import { LandingFooter } from '@/components/landing-footer';
 import { LandingNav } from '@/components/landing-nav';
-import { login } from '@/routes';
-import { products as adminProducts } from '@/routes/admin';
+import { WhatsAppFab } from '@/components/whatsapp-fab';
+import { products as productsRoute, testimonials as testimonialsRoute } from '@/routes';
 import { assetUrl } from '@/types';
-import type { SiteContent } from '@/types';
+import type { Product, SiteContent, Testimonial } from '@/types';
 import { formatCurrency } from '@/utils/fomatter';
-
-type Product = {
-    id: number;
-    name: string;
-    price: number;
-    description: string;
-    image: string;
-};
 
 // Fallback images used until an admin uploads About section images.
 const ABOUT_IMAGE_1_FALLBACK =
@@ -32,14 +25,7 @@ interface LandingProps {
         id: number;
         image: string;
     }[];
-    testimonials: {
-        id: number;
-        name: string;
-        rating: number;
-        review: string;
-        role: string;
-        avatar: string;
-    }[];
+    testimonials: Testimonial[];
     faqs: {
         id: number;
         question: string;
@@ -54,9 +40,7 @@ export default function Landing({
     testimonials,
     faqs,
 }: LandingProps) {
-    const { auth } = usePage().props;
-    const [showAll, setShowAll] = useState(false);
-    const visibleProducts = showAll ? products : products.slice(0, 4);
+    const visibleProducts = products.slice(0, 4);
     const aboutImage1 =
         assetUrl(siteContent.about_image_1) ?? ABOUT_IMAGE_1_FALLBACK;
     const aboutImage2 =
@@ -308,15 +292,12 @@ export default function Landing({
                         </div>
                         {products.length > 4 && (
                             <div className="mt-12 text-center">
-                                <button
-                                    type="button"
-                                    onClick={() => setShowAll((show) => !show)}
+                                <Link
+                                    href={productsRoute()}
                                     className="rounded-full border-2 border-primary px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-on-primary active:scale-95"
                                 >
-                                    {showAll
-                                        ? 'Tampilkan Lebih Sedikit'
-                                        : 'Lihat Semua Produk'}
-                                </button>
+                                    Lihat Semua Produk
+                                </Link>
                             </div>
                         )}
                     </div>
@@ -403,7 +384,7 @@ export default function Landing({
                         Apa Kata Mereka?
                     </h2>
                     <div className="grid gap-8 md:grid-cols-3">
-                        {testimonials.map((testimonial) => (
+                        {testimonials.slice(0, 3).map((testimonial) => (
                             <div
                                 key={testimonial.id}
                                 className="rounded-3xl border border-surface-variant bg-surface-container-low p-8 italic"
@@ -445,6 +426,16 @@ export default function Landing({
                             </div>
                         ))}
                     </div>
+                    {testimonials.length > 3 && (
+                        <div className="mt-12 text-center">
+                            <Link
+                                href={testimonialsRoute()}
+                                className="rounded-full border-2 border-primary px-8 py-3 text-sm font-semibold text-primary transition-all hover:bg-primary hover:text-on-primary active:scale-95"
+                            >
+                                Lihat Semua Testimoni
+                            </Link>
+                        </div>
+                    )}
                 </section>
 
                 {/* FAQ Section */}
@@ -547,60 +538,10 @@ export default function Landing({
                 </section>
 
                 {/* Footer */}
-                <footer className="bg-surface-container-low py-16">
-                    <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-between px-[24px] md:flex-row">
-                        <div className="mb-12 space-y-4 md:mb-0">
-                            <span className="text-2xl font-semibold text-primary">
-                                Kombucha Co.
-                            </span>
-                            <p className="max-w-xs text-sm text-on-surface-variant">
-                                Fermentasi artisan untuk pencernaan yang lebih
-                                baik. Melayani pengiriman ke seluruh Indonesia
-                                dengan kemasan ramah lingkungan.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mx-auto mt-4 flex max-w-[1280px] flex-col justify-between border-t border-surface-variant px-[24px] pt-8 text-xs text-on-surface-variant md:flex-row">
-                        <Link
-                            href={auth.user ? adminProducts() : login()}
-                            className="transition-colors hover:text-primary"
-                            aria-label={
-                                auth.user ? 'Dasbor admin' : 'Admin login'
-                            }
-                        >
-                            © 2024 Kombucha Co. Artisan Fermentation.
-                        </Link>
-                        <div className="mt-4 flex gap-4 md:mt-0">
-                            <a
-                                className="transition-colors hover:text-primary"
-                                href={`https://instagram.com/${(siteContent.instagram ?? '').replace(/^@/, '')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Instagram
-                            </a>
-                            <a
-                                className="transition-colors hover:text-primary"
-                                href={`https://wa.me/${(siteContent.whatsapp ?? '').replace(/\D/g, '')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                WhatsApp
-                            </a>
-                        </div>
-                    </div>
-                </footer>
+                <LandingFooter siteContent={siteContent} />
 
                 {/* WhatsApp FAB */}
-                <a
-                    className="group fixed right-8 bottom-8 z-60 flex w-auto items-center gap-2 rounded-full bg-secondary px-6 py-3 text-on-secondary shadow-[0_24px_24px_-4px_rgba(27,43,30,0.08)] transition-all hover:scale-105 active:scale-95"
-                    href={`https://wa.me/${(siteContent.whatsapp ?? '').replace(/\D/g, '')}`}
-                >
-                    <span className="material-symbols-outlined fill-1">
-                        chat
-                    </span>
-                    <span className="text-sm font-semibold">WhatsApp</span>
-                </a>
+                <WhatsAppFab siteContent={siteContent} />
             </div>
         </>
     );

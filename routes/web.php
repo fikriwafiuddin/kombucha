@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
+Route::get('/products', [LandingPageController::class, 'products'])->name('products');
+Route::get('/testimonials', [LandingPageController::class, 'testimonials'])->name('testimonials');
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('products', [ProductController::class, 'index'])->name('products');
